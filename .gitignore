@@ -1,0 +1,8 @@
+./venv/
+venv/
+/venv
+venv
+./secrets.json
+secrets.json
+./__pycache__
+__pycache__
