@@ -1,4 +1,31 @@
 .header{
     min-height: 10vh;
 }
-  
+.tile{
+    min-width: 32vh;
+    max-width: 32vh;
+    min-height: 35vh;
+    margin-right: 7vh;
+    padding:4vh
+}
+
+.content{
+    margin-top: 3vh;
+    min-height: 10vh ;
+    max-height: 10vh;
+    margin-bottom: 2vh;
+}
+
+.buttonClass{
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+}
+
+.heading{
+    font-size: 5vh;
+    text-decoration: underline;
+    margin-left: 4vh;
+    margin-bottom: 2vh;
+    position: relative;
+}

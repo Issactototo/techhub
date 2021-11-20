@@ -1,0 +1,9 @@
+.header{
+    min-height: 10vh;
+    
+}
+.background{
+    background-color: #121619;
+    min-height:100vh;
+    color: white
+}

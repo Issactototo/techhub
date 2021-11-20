@@ -1,16 +1,16 @@
 import React from 'react'
 import { Button } from 'carbon-components-react';
-import {HeaderTemplate} from "../components"
-
+import {HeaderTemplate,HeadingBar} from "../components"
+import "./template.css";
 export function MainTemplate(props) {
   return (
-    <div>
-        <HeaderTemplate className="header"/>
-        <main>
-        
-        <Button>ABC</Button>
-        {props.children}
-        </main>
+    <div className="background">
+        <div className="header" />
+          <HeadingBar/>
+          <HeaderTemplate/>
+          <main>
+            {props.children}
+          </main>
     </div>
   )  
 }

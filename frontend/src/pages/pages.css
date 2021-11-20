@@ -1,0 +1,59 @@
+.BackgroundDisplayTemplate{
+    background-color: #121619;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:white
+}
+
+.BackgroundFAQTemplate{
+    background-color: #121619;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white
+}
+
+
+.bx--accordion__title{
+    color:white
+}
+
+.bx--accordion__content{
+    color:white
+}
+.bx--accordion__heading:hover{
+    background:lightblue
+}
+
+.bx--accordion__title:focus{
+    border:lightblue
+}
+.bx--accordion__arrow{
+    fill:lightblue
+}
+.bx--accordion__title:disabled{
+    background:lightblue
+}
+
+.panel-default > .panel-heading {
+    background-color:lightblue;
+}
+
+
+.plate{
+    max-width: 70vh;
+    min-width: 70vh;
+    font-size: 6vh;
+}
+
+.FAQQuestion{
+    font-size: 2.4vh;
+}
+
+.FAQAnswer{
+    font-size: 2vh;
+}

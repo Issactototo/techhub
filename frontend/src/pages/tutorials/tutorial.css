@@ -1,0 +1,16 @@
+.BackgroundDisplayTemplate{
+    background-color: #121619;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:white
+}
+
+.bx--structured-list-th	{
+    color:white
+}
+.bx--structured-list-td{
+    color:white
+}
