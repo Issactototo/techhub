@@ -1,14 +1,12 @@
 import React from 'react'
 import { Button } from 'carbon-components-react';
-import {HeaderTemplate,HeadingBar} from "../components"
+import {HeaderTemplate} from "../components"
 import "./template.css";
 export function MainTemplate(props) {
   return (
     <div className="background">
-        <div className="header" />
-          <HeadingBar/>
-          <HeaderTemplate/>
-          <main>
+          <HeaderTemplate isLogin={props.isLogin} setIsLogin={props.setIsLogin}/>
+          <main className="main">
             {props.children}
           </main>
     </div>

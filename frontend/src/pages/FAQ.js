@@ -3,22 +3,28 @@ import React from "react";
 import { Accordion,AccordionItem } from "carbon-components-react";
 import 'carbon-components/css/carbon-components.min.css';
 import { Questions } from "../data";
+import { HeadingBar } from "../components";
 import "./pages.css"
 
 export function FAQPage(){
     return (
-        <div className="BackgroundFAQTemplate">
-            <div className="plate">
-            <Accordion> 
-                {
-                    Questions.map((question) => 
-                    (<AccordionItem title={<p className="FAQQuestion">{question.title}</p>}>
-                    <div>
-                        <p color="white" className="FAQAnswer">{question.answer}</p>
-                    </div>
-                    </AccordionItem> ))
-                }
-                </Accordion>
+        <div className="headingTemplate">
+                <HeadingBar title="Frequently Asked Questions"/>
+            <div className="BackgroundFAQTemplate">
+            
+
+                <div className="plate">
+                <Accordion> 
+                    {
+                        Questions.map((question) => 
+                        (<AccordionItem title={<p className="FAQQuestion">{question.title}</p>}>
+                        <div>
+                            <p color="white" className="FAQAnswer">{question.answer}</p>
+                        </div>
+                        </AccordionItem> ))
+                    }
+                    </Accordion>
+                </div>
             </div>
         </div>
     );

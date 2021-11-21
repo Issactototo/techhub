@@ -9,15 +9,14 @@ import {
     HeaderGlobalAction,
 } from "carbon-components-react/lib/components/UIShell";
 import Search20 from "@carbon/icons-react/lib/search/20";
-import Notification20 from "@carbon/icons-react/lib/notification/20";
-import AppSwitcher20 from "@carbon/icons-react/lib/app-switcher/20";
-import {UserAccess20,Translate20} from "@carbon/icons-react";
+import {Translate20} from "@carbon/icons-react";
+import { LoginedSubHeader,NotLoginedSubHeader } from "./rightHeader";
 
 
 
-export function HeaderTemplate() {
+export function HeaderTemplate({isLogin, setIsLogin}) {
     return (
-        <div>
+        <div >
             <Header aria-label="Tech Hub HK">
                 <HeaderName href="/" prefix="HK">
                     Tech Hub
@@ -31,10 +30,10 @@ export function HeaderTemplate() {
                     <HeaderMenu  menuLinkName="Tutorials" >
                         <HeaderMenuItem href="/menu">Menu</HeaderMenuItem>
                         <HeaderMenuItem href="/list">List</HeaderMenuItem>
-                        <HeaderMenuItem href="/menu/database">Frontend</HeaderMenuItem>
-                        <HeaderMenuItem href="/menu/role">Backend</HeaderMenuItem>
-                        <HeaderMenuItem href="/menu/database">Database</HeaderMenuItem>
-                        <HeaderMenuItem href="/menu/devops">DevOps</HeaderMenuItem>
+                        <HeaderMenuItem href="/menu/Frontend">Frontend</HeaderMenuItem>
+                        <HeaderMenuItem href="/menu/Backend">Backend</HeaderMenuItem>
+                        <HeaderMenuItem href="/menu/Database">Database</HeaderMenuItem>
+                        <HeaderMenuItem href="/menu/DevOps">DevOps</HeaderMenuItem>
                     </HeaderMenu>
                     
                     <HeaderMenuItem href="/faq">FAQ</HeaderMenuItem>
@@ -43,12 +42,16 @@ export function HeaderTemplate() {
                     <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
                     <Search20 />
                     </HeaderGlobalAction>
-                    <HeaderGlobalAction aria-label="Login" onClick={() => {}}>
-                    <UserAccess20 />
-                    </HeaderGlobalAction>
+                    
+                    
                     <HeaderGlobalAction aria-label="Change Language" onClick={() => {}}>
                     <Translate20/>
                     </HeaderGlobalAction>
+                    {isLogin?
+                        <LoginedSubHeader/>
+                        :
+                        <NotLoginedSubHeader setIsLogin={setIsLogin}/>
+                    }
                 </HeaderGlobalBar>
 
             </Header>

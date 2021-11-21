@@ -17,7 +17,7 @@ export const Card = ({card} ) =>{
                     <p>{card.description}</p>
                 </div>
                 <div className="buttonClass">
-                <Button onClick={()=>navigate(card.link)}>Learn {card.title} </Button>
+                <Button onClick={()=>{navigate(card.link);window.scrollTo(0, 0)}}>Learn {card.title} </Button>
                 </div>
             </ClickableTile>
         </div>

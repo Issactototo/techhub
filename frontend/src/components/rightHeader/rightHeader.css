@@ -1,0 +1,18 @@
+.bx--modal-container{
+    background-color: yellow ;
+    background: yellow ;
+}
+.Overlay{
+    color:white
+}
+
+.bx--modal-header__label{
+    color:black
+}
+.bx--modal-header__heading	{
+    color:black
+}
+.bx--label	{
+    color:black;
+    background-color: black;
+}

@@ -4,10 +4,14 @@ import 'carbon-components/css/carbon-components.min.css';
 import "./components.css";
 
 
-export const HeadingBar = () =>{
+function Capitalize(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export const HeadingBar = ({title}) =>{
     return (
-        <div className="heading">
-            Heading
-        </div>
+        <div className="CenterFixedHeadingSection">
+        {Capitalize(title)}
+    </div>
     );
 }

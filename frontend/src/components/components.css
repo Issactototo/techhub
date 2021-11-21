@@ -22,10 +22,20 @@
     text-align: right;
 }
 
-.heading{
+
+
+
+
+.CenterFixedHeadingSection{
+    min-width:100%;
+    min-height:30vh;
+    display:flex;
+    background-color: lightblue;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
     font-size: 5vh;
     text-decoration: underline;
-    margin-left: 4vh;
-    margin-bottom: 2vh;
     position: relative;
+    margin-bottom: 3vh;
 }
