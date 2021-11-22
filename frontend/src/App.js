@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-
+import Cookies from "js-cookie";
 import './App.css';
 import {MainTemplate} from "./templates"
 import {
@@ -19,22 +19,34 @@ import {
   AboutTeamPage,
   ProfilePage
 
-} from "./pages"
+} from "./pages";
+
 
 
 
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [userInformation, setUserInformation] = useState({});
+  const [isLogin, setIsLogin]  = useState(false);
 
+  useEffect(() => {
+    if (Cookies.get("isLogin")==="true") {
+      console.log("HERETRUE")
+      console.log(Cookies.get("isLogin"))
+      setIsLogin(true);
+    }else{
+      console.log("HEREFalse")
+      setIsLogin(false);
+    }
+  },[]);
+
+  
   return (
     <div>
       <Router>
          <MainTemplate isLogin={isLogin} setIsLogin={setIsLogin}>
           <Routes>
             <Route  path="/" element={<LandingPage/>} />
-            <Route  path="/menu" element={<TutorialMenuPage/>} />
+            <Route path='/menu' element={<TutorialMenuPage />} />
             <Route  path="/menu/:category" element={<TutorialCategoryPage/>} />
             <Route  path="/list" element={<TutorialListPage/>} />
             <Route path='/faq'  element={<FAQPage/>} />
@@ -42,7 +54,8 @@ function App() {
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
             <Route path='*'  element={<ErrorPage/>} />
-            {isLogin?
+            {
+            isLogin?
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
               :
             <Route  path="/register" element={<ProfilePage/>}/>

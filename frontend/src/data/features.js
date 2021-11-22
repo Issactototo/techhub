@@ -8,13 +8,13 @@ export const Features=[
     {
         title:"Courses",
         description:"Start learning for free",
-        link:"../aboutBlog",
+        link:"../menu",
         icon:"123"
     },
     {
         title:"Contribute",
         description:"Become a contributor",
-        link:"../aboutBlog",
+        link:"../aboutJoin",
         icon:"123"
     },
 ]

@@ -3,6 +3,8 @@ import { Tile, Button,CodeSnippet, FileUploader } from "carbon-components-react"
 import {AvatarLogo} from "../data"
 import { useNavigate } from "react-router";
 import { HeadingBar } from "../components";
+import Cookies from 'js-cookie'
+
 
 export function ProfilePage({setIsLogin}){
     const navigate = useNavigate();
@@ -30,16 +32,23 @@ export function ProfilePage({setIsLogin}){
         
                     </Tile>
                     <div className="CopyTextSection">
-                        <div>
+                        <div className = "smallSectionBox">
                             <p>User Name:</p>
                             <CodeSnippet type="single" className="blackText">UserName</CodeSnippet>
                         </div>
-                        <div>
+                        <div className = "smallSectionBox">
                             <p>Public Link:</p>
                         <CodeSnippet type="single" className="blackText">PublicLink</CodeSnippet>
                         </div>
-                        <div>
-                            <Button onClick={()=>{navigate("../");setIsLogin(false)}}>Logout</Button>
+                        <div className = "smallSectionBox">
+                            <Button onClick={()=>
+                                {
+                                    Cookies.set("isLogin", "false");
+                                    setIsLogin(false);
+                                    navigate("../");
+                                    
+                                }
+                            }>Logout</Button>
                         </div>
                     </div>
                     

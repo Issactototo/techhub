@@ -48,7 +48,7 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
                     <Translate20/>
                     </HeaderGlobalAction>
                     {isLogin?
-                        <LoginedSubHeader/>
+                        <LoginedSubHeader setIsLogin={setIsLogin}/>
                         :
                         <NotLoginedSubHeader setIsLogin={setIsLogin}/>
                     }

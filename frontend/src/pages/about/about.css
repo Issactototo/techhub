@@ -1,5 +1,4 @@
 .mainImage{
-    width:60vh;
     margin-bottom: 3vh;
 }
 .BackgroundVerticalTemplate{
@@ -37,6 +36,10 @@
 
 .halfScreen{
     background-color:red;
-    min-width:50vh;
+    min-width:60vh;
+    max-width:60vh;
+    padding:2vh;
     margin-right: 3vh;
+    display:flex;
+    flex-direction: column;
 }

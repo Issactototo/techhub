@@ -11,7 +11,7 @@ export const TutorialCategoryPage = () =>{
     return (
         <div className="headingTemplate">
             <HeadingBar title={category}/> 
-            <div className="BackgroundDisplayTemplate">k
+            <div className="BackgroundDisplayTemplate">
             </div>
         </div>
     );

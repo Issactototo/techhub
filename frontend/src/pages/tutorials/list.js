@@ -6,7 +6,8 @@ import {
     StructuredListRow,
     StructuredListCell,
     StructuredListBody,
-    Tag
+    Tag,
+    Pagination
 } from "carbon-components-react";
 import { HeadingBar } from "../../components";
 
@@ -56,6 +57,20 @@ export const TutorialListPage = () =>{
                     </StructuredListRow>
                     </StructuredListBody>
                 </StructuredListWrapper>
+                <Pagination
+                    backwardText="Previous page"
+                    forwardText="Next page"
+                    itemsPerPageText="Items per page:"
+                    page={1}
+                    pageNumberText="Page Number"
+                    pageSize={10}
+                    modifiers
+                    pageSizes={[
+                        10,20
+                    ]}
+                    totalItems={103}
+                    />
+
             </div>
         </div>
     );

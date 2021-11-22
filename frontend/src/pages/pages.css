@@ -107,7 +107,7 @@
 }
 .featureSection{
     min-width:26%;
-    margin-right: 4vh;
+    margin-left: 2vh;
     color:black
 }
 
@@ -169,10 +169,18 @@ h2{
 .CopyTextSection{
     display:flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .CopyTextSection div{
     margin-right: 4vh;
 }
 .CopyTextSection p{
     font-size: 2vh;
+    margin-bottom:1.1vh;
+}
+.smallSectionBox{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

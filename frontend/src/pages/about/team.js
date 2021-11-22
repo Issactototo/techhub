@@ -11,6 +11,7 @@ export const AboutTeamPage = () =>{
                 <div className="aboutMainSection">
                     <div className="halfScreen">
                         <img src={TeamLogo} className="mainImage" alt="team"/>
+                        <p>gfbnj</p>
                     </div>
                     <div  className="halfScreen">
                         <p>The team is </p>
