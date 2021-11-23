@@ -30,17 +30,26 @@
 }
 
 .bx--accordion__content{
-    color:white
+    color:white;
+    background:lightblue
 }
 .bx--accordion__heading:hover{
-    background:lightblue
+    background:lightblue;
+    color:white;
+
 }
 
 .bx--accordion__title:focus{
-    border:lightblue
+    border:lightblue;
+     color:white;
+     background:lightblue;
+
+
 }
 .bx--accordion__arrow{
-    fill:lightblue
+    fill:lightblue;
+    color:lightblue;
+
 }
 .bx--accordion__title:disabled{
     background:lightblue
@@ -59,6 +68,7 @@
 
 .FAQQuestion{
     font-size: 2.4vh;
+    color:white;
 }
 
 .FAQAnswer{

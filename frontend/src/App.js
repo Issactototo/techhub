@@ -7,6 +7,7 @@ import {
 import Cookies from "js-cookie";
 import './App.css';
 import {MainTemplate} from "./templates"
+import { MainContentBuilder } from "./components";
 import {
   LandingPage,
   TutorialMenuPage,
@@ -53,6 +54,7 @@ function App() {
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
+            <Route path = '/contentBuilder' element={<MainContentBuilder/>}/>
             <Route path='*'  element={<ErrorPage/>} />
             {
             isLogin?

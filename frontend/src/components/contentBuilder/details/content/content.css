@@ -1,0 +1,9 @@
+.headerContentBox{
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    min-width: 100%;
+}
+.textContentBox{
+    width:100rem
+}

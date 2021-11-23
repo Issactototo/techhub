@@ -13,10 +13,3 @@ export function LoginedSubHeader(){
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-      profile: state.user.profile
-    }
-  }
-  
-  export const LoginedSubHeaderApp =  connect(mapStateToProps)(LoginedSubHeader);

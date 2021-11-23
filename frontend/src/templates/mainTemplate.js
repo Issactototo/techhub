@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from 'carbon-components-react';
 import {HeaderTemplate} from "../components";
-import {useSelector} from "react-redux";
 import "./template.css";
 export function MainTemplate(props) {
   return (
