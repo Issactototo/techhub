@@ -1,18 +1,49 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v4';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { 
+    DragDropContext, 
+    Droppable, 
+    Draggable, } from 'react-beautiful-dnd';
 import Sidebar from './sidebar';
-import {Container, Content, Item, Handle } from "./details";
+import {Breadcrumb, 
+    BreadcrumbItem, 
+    BreadcrumbSkeleton } from 'carbon-components-react';
+import {
+    Container,
+    Content, 
+    Item, 
+    Handle ,
+    reorder,
+    copy,
+    move,
+    remove
+} from "./details";
 import "./contentBuilder.css";
 import { ITEMS } from "./details";
+import {RowDelete16} from "@carbon/icons-react";
 // import console = require('console');
 
-import {reorder,copy,move} from "./details";
+
+
 
 export class MainContentBuilder extends Component {
+    
+    constructor(props) {
+        super(props)
+    }
     state = {
         [uuid()]: []
     };
+
+
+//   handleDelete = (itemId,itemName) => {
+//     const items = this.state[itemName].filter(item => item !== itemId);
+//     console.log("itemName")
+//     console.log(itemName)
+//     this.setState({ itemName: items });
+//   };
+
+
     onDragEnd = result => {
         const { source, destination } = result;
 
@@ -67,7 +98,14 @@ export class MainContentBuilder extends Component {
             
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className="main">
-                        HIHI
+                    <Breadcrumb>
+                            {
+                                this.props.prefixes.map((prefix)=>{
+                                    const x = prefix;
+                                    return (<BreadcrumbItem href="#">{x}</BreadcrumbItem>)
+                                })
+                            }
+                    </Breadcrumb>
                     <div>
                     <Content>
                         <br/>
@@ -81,8 +119,11 @@ export class MainContentBuilder extends Component {
                                             isDraggingOver={
                                                 snapshot.isDraggingOver
                                             }>
-                                            {this.state[list].length
-                                                ? this.state[list].map(
+                                            {this.state[list].length &&  Array.isArray(this.state[list])
+                                                ? (console.log("HALLOWorld"),
+                                                    console.log(this.state[list]),
+                                                    console.log(this.state[list].length ),
+                                                    this.state[list].map(
                                                     (item, index) => (
                                                         <Draggable
                                                             key={item.id}
@@ -117,13 +158,49 @@ export class MainContentBuilder extends Component {
                                                                             />
                                                                         </svg>
                                                                     </Handle>
-                                                                    
+                                                                    <div style={{display:"flex", flexDirection:"row",  width:"100%"}}>
                                                                         {item.content}
+                                                                        
+                                                                    </div>
+                                                                    <>
+                                                                    <RowDelete16
+                                                                        onClick={()=>{
+                                                                            // console.log("list");
+                                                                            // console.log(item.id);
+                                                                            // console.log(this.state[list]);
+                                                                            
+                                                                            for( let x in this.state[list]){
+                                                                                if(this.state[list][x].id===item.id){
+                                                                                    // const newItems = [...this.state[list]];
+                                                                                    // console.log("this.state.list")
+                                                                                    // console.log(this.state[list])
+                                                                                    var array = [...this.state[list]]
+                                                                                    console.log(array)
+                                                                                    array.splice(x,1);
+                                                                                    console.log("LAST")
+                                                                                    console.log(array)
+                                                                                    this.setState({[list]:array});
+                                                                                    // this.state[list]= y;
+                                                                                    // console.log(this.state[list])
+                                                                                    // console.log("LAST")
+                                                                                    // console.log( list)
+                                                                                    break;
+                                                                                }
+                                                                                
+                                                                            }
+                                                                            
+
+                                                                            
+
+                                                                            }
+                                                                        }
+                                                                    />
+                                                                    </>
                                                                 </Item>
                                                                 
                                                             )}
                                                         </Draggable>
-                                                    )
+                                                    ))
                                                 )
                                                 : !provided.placeholder && (
                                                     <div>Drop items here</div>

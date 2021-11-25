@@ -54,11 +54,14 @@ function App() {
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
-            <Route path = '/contentBuilder' element={<MainContentBuilder/>}/>
+            
             <Route path='*'  element={<ErrorPage/>} />
             {
             isLogin?
+            <>
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
+            <Route path = '/contentBuilder' element={<MainContentBuilder prefixes={['1','2','3']}/>}/>
+            </>
               :
             <Route  path="/register" element={<ProfilePage/>}/>
             }

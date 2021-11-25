@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { ITEMS, Kiosk, Item, Clone } from "./details";
 
-
 export default class Sidebar extends Component {
     render() {
         return (
@@ -26,6 +25,7 @@ export default class Sidebar extends Component {
                                             style={
                                                 provided.draggableProps.style
                                             }>
+                                                
                                             {item.title}
                                         </Item>
                                         {snapshot.isDragging && (

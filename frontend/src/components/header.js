@@ -17,7 +17,7 @@ import { LoginedSubHeader,NotLoginedSubHeader } from "./rightHeader";
 export function HeaderTemplate({isLogin, setIsLogin}) {
     return (
         <div >
-            <Header aria-label="Tech Hub HK">
+            <Header aria-label="Tech Blog HK">
                 <HeaderName href="/" prefix="HK">
                     Tech Hub
                 </HeaderName>

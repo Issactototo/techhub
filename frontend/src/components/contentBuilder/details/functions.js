@@ -36,4 +36,17 @@ const move = (source, destination, droppableSource, droppableDestination) => {
 
     return result;
 };
-export {reorder,copy,move}
+
+const remove = (source, destination, droppableSource, droppableDestination) => {
+    const sourceClone = Array.from(source);
+    const destClone = Array.from(destination);
+    sourceClone.splice(droppableSource.index, 1);
+
+    const result = {};
+    result[droppableSource.droppableId] = sourceClone;
+    result[droppableDestination.droppableId] = destClone;
+
+    return result;
+};
+
+export {reorder,copy,move,remove }

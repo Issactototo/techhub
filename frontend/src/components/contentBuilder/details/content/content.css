@@ -5,5 +5,46 @@
     min-width: 100%;
 }
 .textContentBox{
-    width:100rem
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.contentHeader{
+    font-size: 6vh;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    min-width: 100vh;
+    max-width: 100vh;
+}
+
+.contentSubHeader{
+    font-size: 4vh;
+    min-width: 80vh;
+    max-width: 80vh;
+
+}
+
+.subHeaderBox{
+    display:flex;
+    flex-direction: row;
+}
+
+.externalContentBox{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100%;
+    font-size: 2vh;
+
+}
+.imageContent{
+    width:55vh;
+    height:45vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
 }
