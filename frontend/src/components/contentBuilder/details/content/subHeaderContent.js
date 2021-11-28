@@ -3,7 +3,7 @@ import {RowDelete16} from "@carbon/icons-react";
 
 import { useState } from "react"
 
-export const SubHeaderContent =()=>{
+export const SubHeaderContent =({id,data,setData})=> {
     const [value, setValue]= useState("");
     return(
         <div className="subHeaderBox">
@@ -16,8 +16,14 @@ export const SubHeaderContent =()=>{
                 helperText="SubHeader"
                 onChange={event => 
                         {
-                            if(event.target.value.length<30)setValue(event.target.value)} 
-                        }/>
+                            if(event.target.value.length<60){
+                                setValue(event.target.value)
+                                const tempData = data;
+                                tempData.set(id,event.target.value)
+                                setData(tempData);
+                                console.log(tempData)
+                            }} 
+                }/>
                         
             </label>
             

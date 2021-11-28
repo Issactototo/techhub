@@ -12,7 +12,7 @@
 }
 
 .contentHeader{
-    font-size: 6vh;
+    font-size: 4vh;
     display:flex;
     justify-content: center;
     text-align: center;
@@ -21,7 +21,7 @@
 }
 
 .contentSubHeader{
-    font-size: 4vh;
+    font-size: 2vh;
     min-width: 80vh;
     max-width: 80vh;
 

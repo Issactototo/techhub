@@ -5,3 +5,13 @@ p{
 .BackgroundFAQTemplate{
 }
 
+.topContentBuilderBar{
+    display: flex;
+    flex-direction: row;
+    width:87%;
+    padding:0.5%
+}
+
+.topContentBuilderRightBar{
+    margin-left: auto;
+}

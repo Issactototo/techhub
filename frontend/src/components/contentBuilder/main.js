@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import uuid from 'uuid/v4';
+
 import { 
     DragDropContext, 
     Droppable, 
@@ -7,7 +8,7 @@ import {
 import Sidebar from './sidebar';
 import {Breadcrumb, 
     BreadcrumbItem, 
-    BreadcrumbSkeleton } from 'carbon-components-react';
+    BreadcrumbSkeleton, Button } from 'carbon-components-react';
 import {
     Container,
     Content, 
@@ -16,11 +17,14 @@ import {
     reorder,
     copy,
     move,
-    remove
+    GetComponent
 } from "./details";
 import "./contentBuilder.css";
 import { ITEMS } from "./details";
-import {RowDelete16} from "@carbon/icons-react";
+import {RowDelete16, Touch_116, Launch16} from "@carbon/icons-react";
+import { get } from 'js-cookie';
+
+
 // import console = require('console');
 
 
@@ -30,9 +34,13 @@ export class MainContentBuilder extends Component {
     
     constructor(props) {
         super(props)
+        console.log("this.props.prefixes");
+        console.log(this.props.tempEditPath);
     }
+    
+    
     state = {
-        [uuid()]: []
+        ["Editable"]: [],
     };
 
 
@@ -87,29 +95,45 @@ export class MainContentBuilder extends Component {
         }
     };
 
-    addList = e => {
-        this.setState({ [uuid()]: [] });
-    };
+
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
+       
         return (
             
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <div className="main">
-                    <Breadcrumb>
-                            {
-                                this.props.prefixes.map((prefix)=>{
-                                    const x = prefix;
-                                    return (<BreadcrumbItem href="#">{x}</BreadcrumbItem>)
-                                })
-                            }
-                    </Breadcrumb>
+                        {console.log(this.props)}
+                        <div className="topContentBuilderBar">
+                            <Breadcrumb>
+                                    {
+                                        this.props.tempEditPath.map((prefix)=>{
+                                            const x = prefix;
+                                            return (<BreadcrumbItem href="#">{x}</BreadcrumbItem>)
+                                        })
+                                    }
+                            </Breadcrumb>
+                            <div className="topContentBuilderRightBar">
+                                <Button onClick={()=>
+                                    {
+                                        console.log(this.props.data);
+                                    }
+                                }>Preview <Launch16/></Button>
+                                <Button style ={{marginLeft:"4vh"}}onClick={()=>
+                                    {
+                                        console.log(this.state)
+                                    }
+                                }>Submit <Touch_116 /> </Button>
+                            </div>
+                         </div>
                     <div>
                     <Content>
                         <br/>
                         {Object.keys(this.state).map((list, i) => {
+
+                            
                             console.log('==> list', list);
                             return (
                                 <Droppable key={list} droppableId={list}>
@@ -125,6 +149,7 @@ export class MainContentBuilder extends Component {
                                                     console.log(this.state[list].length ),
                                                     this.state[list].map(
                                                     (item, index) => (
+                                                        
                                                         <Draggable
                                                             key={item.id}
                                                             draggableId={item.id}
@@ -159,7 +184,9 @@ export class MainContentBuilder extends Component {
                                                                         </svg>
                                                                     </Handle>
                                                                     <div style={{display:"flex", flexDirection:"row",  width:"100%"}}>
-                                                                        {item.content}
+                                                                        {
+                                                                            GetComponent(item.type,item.id,this.props.data,this.props.setData)
+                                                                        }
                                                                         
                                                                     </div>
                                                                     <>
@@ -175,11 +202,15 @@ export class MainContentBuilder extends Component {
                                                                                     // console.log("this.state.list")
                                                                                     // console.log(this.state[list])
                                                                                     var array = [...this.state[list]]
-                                                                                    console.log(array)
                                                                                     array.splice(x,1);
-                                                                                    console.log("LAST")
-                                                                                    console.log(array)
                                                                                     this.setState({[list]:array});
+                                                                                    if(this.props.data.get(item.id)!=null){
+                                                                                        const tempData = this.props.data;
+                                                                                        tempData.set(item.id,"")
+                                                                                        this.props.setData(tempData);
+                                                                                        console.log("tempData")
+                                                                                        console.log(tempData)
+                                                                                    }
                                                                                     // this.state[list]= y;
                                                                                     // console.log(this.state[list])
                                                                                     // console.log("LAST")
@@ -210,6 +241,7 @@ export class MainContentBuilder extends Component {
                                     )}
                                 </Droppable>
                             );
+                            
                         })}
                     </Content>
                     </div>

@@ -1,11 +1,10 @@
 import "./content.css"
 import { TextInput} from 'carbon-components-react';
 import { useState } from "react";
-import {RowDelete16} from "@carbon/icons-react";
 
-
-export const HeaderContent =()=> {
+export const HeaderContent =({id,data,setData})=> {
     const [value, setValue]= useState("");
+
 
     return(
         <div className="headerContentBox">
@@ -20,8 +19,17 @@ export const HeaderContent =()=> {
                 helperText="Header"
                 onChange={event => 
                         {
-                            if(event.target.value.length<26)setValue(event.target.value)} 
-                        }/>
+                            if(event.target.value.length<50){
+                                setValue(event.target.value)
+                                const tempData = data;
+                                tempData.set(id,event.target.value)
+                                setData(tempData);
+                                console.log(tempData)
+                            }
+                        
+                        } 
+                            
+                }/>
             </label>
         </div>
     )

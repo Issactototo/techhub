@@ -16,7 +16,7 @@ const Kiosk = styled(List)`
     top: 6vh;
     right: 0;
     bottom: 0;
-    width: 200px;
+    width: 13%;
 `;
 
 const Item = styled.div`
@@ -40,7 +40,7 @@ const Clone = styled(Item)`
 `;
 
 const Content = styled.div`
-    margin-right: 200px;
+    margin-right: 13%;
 `;
 
 

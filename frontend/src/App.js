@@ -7,7 +7,6 @@ import {
 import Cookies from "js-cookie";
 import './App.css';
 import {MainTemplate} from "./templates"
-import { MainContentBuilder } from "./components";
 import {
   LandingPage,
   TutorialMenuPage,
@@ -18,7 +17,8 @@ import {
   AboutBlogPage,
   AboutJoinPage,
   AboutTeamPage,
-  ProfilePage
+  ProfilePage,
+  ContentBuilderPage
 
 } from "./pages";
 
@@ -28,7 +28,7 @@ import {
 
 function App() {
   const [isLogin, setIsLogin]  = useState(false);
-
+  const [tempEditPath, setTempEditPath] = useState([]);
   useEffect(() => {
     if (Cookies.get("isLogin")==="true") {
       console.log("HERETRUE")
@@ -48,7 +48,7 @@ function App() {
           <Routes>
             <Route  path="/" element={<LandingPage/>} />
             <Route path='/menu' element={<TutorialMenuPage />} />
-            <Route  path="/menu/:category" element={<TutorialCategoryPage/>} />
+            <Route  path="/menu/:category" element={<TutorialCategoryPage setTempEditPath={setTempEditPath} />} />
             <Route  path="/list" element={<TutorialListPage/>} />
             <Route path='/faq'  element={<FAQPage/>} />
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />
@@ -60,7 +60,7 @@ function App() {
             isLogin?
             <>
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
-            <Route path = '/contentBuilder' element={<MainContentBuilder prefixes={['1','2','3']}/>}/>
+            <Route path = '/contentBuilder' element={<ContentBuilderPage tempEditPath={tempEditPath} />}/>
             </>
               :
             <Route  path="/register" element={<ProfilePage/>}/>
