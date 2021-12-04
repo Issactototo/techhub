@@ -1,9 +1,16 @@
-import { CodeSnippet, TextArea,FileUploader } from 'carbon-components-react';
-import {RowDelete16} from "@carbon/icons-react";
-import { useState } from 'react';
+import {  TextArea } from 'carbon-components-react';
+import { useState, useEffect } from 'react';
 
 export const CodeContent  =({id,data,setData})=> {
     const [value, setValue]= useState("");
+
+    useEffect(() => {
+        if(data.get(id)!=null){
+            setValue(data.get(id));
+        }
+        console.log("data.get(id)")
+        console.log(data.get(id))
+    }, [])
 
     return(
         <div className="textContentBox">

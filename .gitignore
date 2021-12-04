@@ -1,8 +1,5 @@
-./venv/
-venv/
-/venv
-venv
-./secrets.json
-secrets.json
-./__pycache__
-__pycache__
+/node_modules
+node_modules
+
+/.env
+.env

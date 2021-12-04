@@ -17,13 +17,12 @@ export const VideoContent  =({id,data,setData})=> {
                         helperText="SubHeader"
                         onChange={event => 
                                 {
-                                    if(event.target.value.length<60){
                                         setValue(event.target.value)
                                         const tempData = data;
                                         tempData.set(id,event.target.value)
                                         setData(tempData);
                                         console.log(tempData)
-                                    }} }
+                                    } }
                     />
             </Tile>
             {//<RowDelete16/>

@@ -8,8 +8,7 @@ import {
     HeaderGlobalBar,
     HeaderGlobalAction,
 } from "carbon-components-react/lib/components/UIShell";
-import Search20 from "@carbon/icons-react/lib/search/20";
-import {Translate20} from "@carbon/icons-react";
+import {LogoGithub20} from "@carbon/icons-react";
 import { LoginedSubHeader,NotLoginedSubHeader } from "./rightHeader";
 
 
@@ -40,12 +39,7 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
                 </HeaderNavigation>
                 <HeaderGlobalBar>
                     <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
-                    <Search20 />
-                    </HeaderGlobalAction>
-                    
-                    
-                    <HeaderGlobalAction aria-label="Change Language" onClick={() => {}}>
-                    <Translate20/>
+                    <LogoGithub20 />
                     </HeaderGlobalAction>
                     {isLogin?
                         <LoginedSubHeader setIsLogin={setIsLogin}/>

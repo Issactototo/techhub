@@ -3,39 +3,78 @@ import {
     Tile,
     FileUploader,
  } from "carbon-components-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ImageContent  =({id,data,setData})=> {
     const [value, setValue]= useState("");
-    return(
-        <div className="externalContentBox">
-            <Tile className="imageContent">
+    const [complete, setComplete]= useState(false);
 
-            <FileUploader
-                accept={[
-                    '.jpg',
-                    '.png'
-                ]}
-                buttonKind="primary"
-                buttonLabel="Add files"
-                filenameStatus="edit"
-                iconDescription="Clear file"
-                labelDescription="only .jpg files at 500mb or less"
-                labelTitle="Upload"
-                className="imageContent"
-                onChange={event => 
-                    {
-                            setValue(event.target.value)
-                            const tempData = data;
-                            // tempData.set(id,event.target.value)
-                            // setData(tempData);
-                            // console.log("event")
-                            console.log(event.target.files[0])
-                    
-                    } 
+    useEffect(() => {
+        if(data.get(id)!=null){
+            setValue(data.get(id));
+            setComplete(true);
+        }
+        console.log("data.get(id)")
+        console.log(data.get(id))
+    }, [])
+    return(
+        <>
+        {
+            complete? 
+            <div style={{
+                display:"flex",
+                justifyContent:"center", 
+                alignItems:"center", 
+                textAlign:"center",
+                maxHeight:"40vh",
+                width:"100%",
+            }}> 
+
+                <img src={value} className="image" alt={"preview"} style={{ objectFit: "cover" }} />
+            </div>
+            :
+        
+            <div className="externalContentBox">
+                <Tile className="imageContent">
+                
+                <FileUploader
+                    accept={[
+                        '.jpg',
+                        '.png'
+                    ]}
+                    buttonKind="primary"
+                    buttonLabel="Add files"
+                    filenameStatus="edit"
+                    iconDescription="Clear file"
+                    labelDescription="only .jpg files at 500mb or less"
+                    labelTitle="Upload"
+                    className="imageContent"
+                    onChange={event => 
+                        {
+                                
+                                
+                                const reader = new FileReader();
+                                console.log("fegsfnb")
+                                reader.onloadend = () => {
+                                    setValue(reader.result);
+                                    console.log(reader.result)
+                                    const tempData = data;
+                                    tempData.set(id,reader.result)
+                                    setData(tempData);
+                                };
+                                reader.readAsDataURL(event.target.files[0]);
+
+                                setComplete(true);
                         
-            }/>
-            </Tile>
-        </div>
+                        } 
+                            
+                }/>
+                </Tile>
+                
+            </div>
+        }
+        </>
+        
     )
 }
+

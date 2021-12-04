@@ -1,0 +1,54 @@
+.centerBox{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    margin: 3%;
+}
+
+.header{
+    color:white;
+    font-size: 5vh;
+    text-decoration-line: underline
+
+}
+
+.subHeader{
+    color:white;
+    font-size: 3vh;
+    text-decoration-line: underline
+}
+.text{
+    color:white;
+    font-size: 2.4vh;
+}
+
+
+.textBox{
+    width:70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:white;
+    margin: 1%;
+    padding:1%;
+    border:solid 1px white;
+
+}
+
+
+.image{
+    max-width:55%;
+    margin:1%
+}
+
+
+
+.subHeaderDisplayBox{
+    margin-left: 20%;
+    margin-bottom: 3%;
+}
+
+.codeBox{
+    min-width: 30%;
+}

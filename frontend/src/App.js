@@ -18,7 +18,8 @@ import {
   AboutJoinPage,
   AboutTeamPage,
   ProfilePage,
-  ContentBuilderPage
+  ContentBuilderPage,
+  PreviewPage
 
 } from "./pages";
 
@@ -55,12 +56,14 @@ function App() {
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
             
+            
             <Route path='*'  element={<ErrorPage/>} />
             {
             isLogin?
             <>
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
             <Route path = '/contentBuilder' element={<ContentBuilderPage tempEditPath={tempEditPath} />}/>
+            <Route path='/preview'  element={<PreviewPage/>} />
             </>
               :
             <Route  path="/register" element={<ProfilePage/>}/>
