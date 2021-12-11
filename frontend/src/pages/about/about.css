@@ -1,5 +1,6 @@
 .mainImage{
     margin-bottom: 3vh;
+    max-width: 100%;
 }
 .BackgroundVerticalTemplate{
     background-color: #121619;
@@ -35,11 +36,65 @@
 }
 
 .halfScreen{
-    background-color:red;
-    min-width:60vh;
-    max-width:60vh;
+    background-color:grey;
+    min-width:50%;
+    max-width:50%;
     padding:2vh;
     margin-right: 3vh;
     display:flex;
     flex-direction: column;
+}
+.aboutBlogContent{
+    display:flex;
+    flex-direction: row;
+    font-size: 3vh;
+    line-height: 5vh;
+    text-align: center;
+
+}
+
+
+.BackgroundVerticalWidthLimit80Template{
+    max-width:70%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    padding:1%;
+    
+}
+
+.quote{
+    max-width:30%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom:5%;
+}
+
+.quoteContent{
+    font-size: 6vh;
+    margin-bottom: 3%;
+    line-height: 7vh;
+}
+
+.quoteAuthor{
+    font-size: 4vh;
+    line-height: 5vh;
+    font-style: italic;
+    
+}
+
+.teamSubHeader{
+    font-size: 3vh;
+    color:white
+}
+
+.teamContent{
+    color:white;
+    font-size: 2vh;
 }

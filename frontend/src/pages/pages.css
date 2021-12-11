@@ -24,6 +24,17 @@
     color:white
 }
 
+.BackgroundCategoryTemplate{
+    background-color: #121619;
+    display: flex;
+    min-height: 60vh;
+    flex-direction: column;
+    align-items: center;
+    padding:3%;
+    color:white
+}
+
+
 
 .bx--accordion__title{
     color:white
@@ -161,6 +172,7 @@ h2{
 
 .profileTemplate{
     min-width:50%;
+    max-width:50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -193,4 +205,21 @@ h2{
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.profileUploadBox{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.profileImage{
+    max-width: 40vh;
+    min-width: 40vh;
+    max-height: 40vh;
+    min-height: 40vh;
+    border-radius: 50%;
 }

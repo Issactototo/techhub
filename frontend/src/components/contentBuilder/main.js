@@ -138,12 +138,13 @@ export class MainContentBuilder extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="main">
+          <div className= "dndTemplate">
           {console.log(this.props)}
           <div className="topContentBuilderBar">
             <Breadcrumb>
               {this.props.tempEditPath.map((prefix) => {
                 const x = prefix;
-                return <BreadcrumbItem href="#">{x}</BreadcrumbItem>;
+                return <BreadcrumbItem href="#"><p className="BreadcrumbText">{x}</p></BreadcrumbItem>;
               })}
             </Breadcrumb>
             <div className="topContentBuilderRightBar">
@@ -286,6 +287,7 @@ export class MainContentBuilder extends Component {
           </div>
           <div>
             <Sidebar />
+          </div>
           </div>
         </div>
       </DragDropContext>

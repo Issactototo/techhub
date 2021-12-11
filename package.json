@@ -7,10 +7,22 @@
     "myapp"
   ],
   "dependencies": {
+    "atob": "^2.1.2",
+    "b64-to-blob": "^1.2.19",
+    "blob": "^0.1.0",
+    "blob-util": "^2.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "ibm-cos-sdk": "^1.11.0",
+    "node-blob": "^0.0.2",
+    "node-fetch": "^3.1.0",
+    "oci-sdk": "^2.9.1",
     "oracledb": "^5.1.0"
   },
   "author": "You",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  }
 }

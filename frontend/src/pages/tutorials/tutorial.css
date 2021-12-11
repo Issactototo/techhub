@@ -13,3 +13,22 @@
     color:black
 }
 
+.selectLevelBar{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    margin-bottom: 5%;
+}
+
+.selectLevelBar{
+    position:relative;
+    left:30%;
+}
+.initBlogButton{
+    margin-left:4vh;
+    height:100%
+}
+.whiteText{
+    color:white
+}

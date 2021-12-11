@@ -15,3 +15,11 @@ p{
 .topContentBuilderRightBar{
     margin-left: auto;
 }
+
+.dndTemplate{
+    padding: 1%;
+}
+
+.BreadcrumbText{
+    font-size: 2vh;
+}

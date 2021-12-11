@@ -4,12 +4,16 @@
     width:100%;
     margin: 3%;
 }
+.centerVideoBox{
+    min-width:60%;
+    min-height: 60vh;
 
-.header{
+}
+
+.headerData{
     color:white;
     font-size: 5vh;
-    text-decoration-line: underline
-
+    text-decoration-line: underline;
 }
 
 .subHeader{
@@ -37,8 +41,10 @@
 }
 
 
-.image{
-    max-width:55%;
+.imageDisplay{
+    max-width:40%;
+    max-height:60vh;
+    height:inherit;
     margin:1%
 }
 

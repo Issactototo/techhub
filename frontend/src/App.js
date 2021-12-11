@@ -49,7 +49,7 @@ function App() {
           <Routes>
             <Route  path="/" element={<LandingPage/>} />
             <Route path='/menu' element={<TutorialMenuPage />} />
-            <Route  path="/menu/:category" element={<TutorialCategoryPage setTempEditPath={setTempEditPath} />} />
+            <Route  path="/menu/:category" element={<TutorialCategoryPage setTempEditPath={setTempEditPath} isLogin={isLogin} />} />
             <Route  path="/list" element={<TutorialListPage/>} />
             <Route path='/faq'  element={<FAQPage/>} />
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />

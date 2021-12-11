@@ -1,17 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const oracledb = require("oracledb");
 const path = require('path')
 
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') })
 
-oracledb.initOracleClient({
-  libDir: process.env.HOME + "/Downloads/instantclient_19_8",
-});
+const oracledb = require('../Database')
 
 router.get("/", async function (req, res) {
-  // console.log("req")
-  // console.log(req)
   let connection = await oracledb.getConnection({
     user: process.env.USERNAME,
     password: process.env.PASSWORD,
@@ -37,7 +32,7 @@ router.get("/", async function (req, res) {
 
 router.post("/", async function (req, res) {
   // console.log("req")
-  // console.log(req)
+  // console.log(req.body)
   let connection = await oracledb.getConnection({
     user: process.env.USERNAME,
     password: process.env.PASSWORD,
@@ -47,11 +42,11 @@ router.post("/", async function (req, res) {
     const sql = `INSERT INTO PendingUser VALUES (:1, :2, :3,:4, :5)`;
     const binds = [
       [
-        req.query.email,
-        req.query.username,
-        req.query.reason,
-        req.query.topic,
-        req.query.isReferred,
+        req.body.email,
+        req.body.username,
+        req.body.reason,
+        req.body.topic,
+        req.body.isReferred,
       ],
     ];
     console.log("binds");

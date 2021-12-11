@@ -11,10 +11,16 @@ export const AboutTeamPage = () =>{
                 <div className="aboutMainSection">
                     <div className="halfScreen">
                         <img src={TeamLogo} className="mainImage" alt="team"/>
-                        <p>gfbnj</p>
                     </div>
                     <div  className="halfScreen">
-                        <p>The team is </p>
+                        <p className="teamSubHeader"> Contributor </p>
+                        <br/>
+                        <p className="teamContent">Create a pull request on Github</p>
+                        <br/>
+                        <p className="teamSubHeader"> Content Creator </p>
+                        <br/>
+                        <p className="teamContent">Join us as a content creator and share your knowlege on the other subpage</p>
+                        <br/>
                     </div>
                 </div>
             </div>

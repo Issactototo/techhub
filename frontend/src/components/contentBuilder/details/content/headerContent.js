@@ -1,10 +1,14 @@
 import "./content.css"
 import { TextInput} from 'carbon-components-react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const HeaderContent =({id,data,setData})=> {
     const [value, setValue]= useState("");
-
+    useEffect(() => {
+        if(data.get(id)!=null){
+            setValue(data.get(id));
+        }
+    }, [])
 
     return(
         <div className="headerContentBox">
