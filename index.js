@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 
 app.use('/register', require("./src/Pending"));
 app.use('/user', require("./src/User"));
+app.use('/blogs', require("./src/Blogs"));
 
 
 app.listen(port, () => {

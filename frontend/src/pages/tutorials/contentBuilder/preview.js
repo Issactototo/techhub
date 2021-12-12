@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { convertData } from "../../../components";
-import { Button } from "carbon-components-react";
-import { PageFirst16, PageLast16} from "@carbon/icons-react";
+import { Button, Loading } from "carbon-components-react";
+import { PageFirst16, PageLast16 } from "@carbon/icons-react";
 import "./contentBuilder.css";
 import { useNavigate } from "react-router";
-import { processImage } from "../../../functions";
+import { processImage, submit } from "../../../functions";
 
 export const PreviewPage = () => {
   //const cardSample = {title:"abc",description:"desciption"}
   const { state } = useLocation();
   const navigate = useNavigate();
   const [isDataReady, setDataReady] = useState(false);
+  const [isSuccessStored, setIsSuccessStored] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   // const { DataMap, DataList } = state;
-  
-  const handleClickSubmit= async ()=>{
-    console.log("afkaof")
-    const processedData = await processImage(data);
-    console.log(JSON.stringify(processedData))
-  }
+
+  const handleClickSubmit = async () => {
+    console.log("afkaof");
+    setIsLoading(true)
+    const submissionResponse = await submit({
+      email: "123",
+      username: "ToTO",
+      category: "categry",
+      level: "level",
+      data: data,
+      title: "title",
+    });
+    setIsLoading(false)
+    if(submissionResponse==='error'){
+      setIsSuccessStored(false)
+    }else{
+      setIsSuccessStored(true)
+    }
+  };
   useEffect(() => {
     console.log("eabgiab");
     console.log(state.DataList);
@@ -33,10 +48,21 @@ export const PreviewPage = () => {
 
   return (
     <div className="previewPage">
-        <div className="displayToolsBar">
-            <Button className="displayLeftButton"onClick={() => navigate(-1)}><PageFirst16 />Back </Button>
-            <Button className="displayRightButton" onClick={handleClickSubmit}>Publish<PageLast16/></Button>
-        </div>
+      {
+        isLoading?
+        <Loading/>
+        :null
+      }
+      <div className="displayToolsBar">
+        <Button className="displayLeftButton" onClick={() => navigate(-1)}>
+          <PageFirst16 />
+          Back{" "}
+        </Button>
+        <Button className="displayRightButton" onClick={handleClickSubmit}>
+          Publish
+          <PageLast16 />
+        </Button>
+      </div>
       {isDataReady ? (
         <div className="dispayContentBackground">
           {data.map((item, index) => {
@@ -48,7 +74,6 @@ export const PreviewPage = () => {
       ) : (
         <p style={{ color: "white" }}>not ready</p>
       )}
-      
     </div>
   );
 };

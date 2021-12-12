@@ -22,15 +22,10 @@ export function NotLoginedSubHeader({setIsLogin}){
     const handleLogin = async () => {
         setIsLoading(true);
         const result = await userLogin({email:email,password:password});
-
-        console.log("FHUafuiaebfnoaem")
-        console.log(result)
         if(result!==false){
-        console.log('result.data.email')
 
             setIsLogin(true);
             Cookies.set("isLogin", "true")
-
             navigate("../profile",{ state:{email: result.data.email , image: result.data.profileImage}})
         }else{
             setIsValid(false);
@@ -43,7 +38,7 @@ export function NotLoginedSubHeader({setIsLogin}){
             {
                 isLoading? <Loading/>:null
             }
-            {isOpen? 
+            {isOpen && !isLoading? 
                 <Modal
                     open={isOpen}
                     buttonTriggerText=""

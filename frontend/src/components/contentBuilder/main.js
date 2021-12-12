@@ -1,5 +1,4 @@
 import React, { Component, useRef } from "react";
-import uuid from "uuid/v4";
 
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Sidebar from "./sidebar";
