@@ -26,7 +26,7 @@ export const ContentBuilderPage = ({tempEditPath}) =>{
         console.log("INFENAJKNF")
         console.log(DataMap)
         console.log(DataList)
-       navigate('/preview',  { state: { DataMap: DataMap, DataList: DataList } });
+       navigate('/preview',  { state: { DataMap: DataMap, DataList: DataList, tempEditPath, tempEditPath} });
     }
     return (
         <MainContentBuilder 

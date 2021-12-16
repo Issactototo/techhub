@@ -23,8 +23,8 @@ export const PreviewPage = () => {
     const submissionResponse = await submit({
       email: "123",
       username: "ToTO",
-      category: "categry",
-      level: "level",
+      category: state.tempEditPath[0],
+      level: state.tempEditPath[1],
       data: data,
       title: "title",
     });
