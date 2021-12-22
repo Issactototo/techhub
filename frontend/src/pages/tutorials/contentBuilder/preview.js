@@ -26,7 +26,7 @@ export const PreviewPage = () => {
       category: state.tempEditPath[0],
       level: state.tempEditPath[1],
       data: data,
-      title: "title",
+      title: "afeafeaefaefaefaefaefaefaefefa",
     });
     setIsLoading(false)
     if(submissionResponse==='error'){

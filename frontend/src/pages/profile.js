@@ -37,14 +37,15 @@ export function ProfilePage({ setIsLogin }) {
           console.log("Cookies.get(");
           setUserName(state.email);
           Cookies.set("userEmail", state.email);
-          if (state.image !== "null") {
-            const img = new Buffer.from(state.image).toString("ascii");
-            console.log("image", img);
-            // Cookies.set('profileImage', img);
-            console.log(Cookies.get("profileImage"));
-            setProfileImage(new Buffer.from(state.image).toString("ascii"));
-          }
-        } else {
+        //   if (state.image !== "null") {
+        //     const img = new Buffer.from(state.image).toString("ascii");
+        //     console.log("image", img);
+        //     // Cookies.set('profileImage', img);
+        //     console.log(Cookies.get("profileImage"));
+        //     setProfileImage(new Buffer.from(state.image).toString("ascii"));
+        //   }
+        // } else {
+        }
           if (Cookies.get("userEmail") != null) {
             setUserName(Cookies.get("userEmail"));
             console.log("aefuioaebfa");
@@ -53,6 +54,7 @@ export function ProfilePage({ setIsLogin }) {
             // if(Cookies.get('profileImage')!=null){
             //     setProfileImage(Cookies.get('profileImage'))
             // };
+            console.log(Cookies.get("userEmail"))
             const tempProfileImage = await userGetImage({email:Cookies.get("userEmail")});
             console.log(tempProfileImage.data)
             console.log('tempProfileImage')
@@ -60,7 +62,6 @@ export function ProfilePage({ setIsLogin }) {
               setProfileImage(tempProfileImage.data);
             }
           }
-        }
         setIsLoading(false)
     }
     fetchMyAPI()
@@ -100,7 +101,7 @@ export function ProfilePage({ setIsLogin }) {
                     setProfileImage(reader.result);
                     userStoreImage({
                       image: reader.result,
-                      email: "state.email",
+                      email: userName,
                     });
                   };
                   // console.log(event.target.files[0])

@@ -1,6 +1,6 @@
 import { Select, SelectItem, SelectItemGroup } from "carbon-components-react";
 
-export const CategorySelectBar = ({setLevel, setButtonLevel}) => {
+export const CategorySelectBar = ({setLevel, setButtonLevel, data, setDisplayData}) => {
   return (
     <Select
       defaultValue="placeholder-item"
@@ -13,9 +13,15 @@ export const CategorySelectBar = ({setLevel, setButtonLevel}) => {
         {
             console.log(event.target.value)
             setLevel(event.target.value)
-            if(event.target.value!=="all"){
-              setButtonLevel(event.target.value)
-            }
+             
+              if( event.target.value !=="all"){
+                const tempData= [...data];
+                setButtonLevel(event.target.value)
+                const displayData = tempData.filter(item => (item[1] === event.target.value));
+                setDisplayData(displayData)
+              }else{
+                setDisplayData(data)
+              }
         }   
       }
     >

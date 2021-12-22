@@ -170,7 +170,7 @@ router.get("/userInformation", async function (req, res) {
 
 router.post("/userInformation/image", async function (req, res) {
   // console.log("req")
-  // console.log(req.body)
+  console.log(req.body)
     const response = await storeBlobAtIBM(req.body.email, req.body.image );
     if(response!='error'){
       res.status(200).send(response);
@@ -182,7 +182,7 @@ router.post("/userInformation/image", async function (req, res) {
 
 router.get("/userInformation/image/:email", async function (req, res) {
   // console.log("req")
-  // console.log(req.body)
+  console.log(req.params)
   console.log("ajbfav")
   const response = await getProfileImageIBM(req.params.email);
   // console.log(response)

@@ -78,4 +78,32 @@ router.post("/submit", async function (req, res) {
     }
 });
 
+
+router.get("/category/:category", async function (req, res) {
+  let connection = await oracledb.getConnection({
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    connectionString: process.env.CONNECTIONSTRING,
+  });
+  try {
+    console.log(req.params.category)
+    //req.params.emai
+    const sql = `SELECT USERNAME, PUBLISHEDLEVEL, TITLE, PUBLISHEDDATE, ID FROM BLOG WHERE CATEGORY='${req.params.category}' `;
+    
+    const result = await connection.execute(sql);
+    res.status(200).send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(502).send(err);
+  }
+  try {
+    await connection.close();
+    console.log("HEREE");
+  } catch (err) {
+    console.error(err);
+    res.status(502).send(err);
+  }
+});
+
+
 module.exports = router;
