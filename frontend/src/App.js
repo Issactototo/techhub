@@ -55,8 +55,7 @@ function App() {
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
-            
-            
+            <Route path='/blog/:id'  element={<PreviewPage/>} />
             <Route path='*'  element={<ErrorPage/>} />
             {
             isLogin?

@@ -64,9 +64,9 @@ const remove = (source, destination, droppableSource, droppableDestination) => {
 
 function GetComponent ( type, id, data,setData){
     switch(type) {
-        case "headerContent":
+        case "header":
             return <HeaderContent id={id} setData={setData} data= {data} />
-        case "subHeaderContent":
+        case "subHeader":
           // code block
             return <SubHeaderContent id={id} setData={setData} data= {data} />
         case "text":

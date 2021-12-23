@@ -1,8 +1,10 @@
 export const TextDisplay = ({ data }) => {
 
   function NewlineText(data) {
-    const newText = data.split('\n').map(str => <p className="text">{str}</p>);
-    return newText
+    if(data.split('\n')){
+      return data.split('\n').map(str => <p className="text">{str}</p>);
+    }
+    return data
   }
   return (
     <div className="centerBox">

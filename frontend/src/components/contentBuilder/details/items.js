@@ -15,24 +15,21 @@ export const ITEMS = [
 
     {
         id: uuid(),
-        type: "headerContent",
+        type: "header",
         title: 'Header',
-        data: HeaderData,
-        content:<HeaderContent/>,
+        data: HeaderData
     },
     {
         id: uuid(),
-        type: "subHeaderContent",
-        title: 'SubHeaderContent',
+        type: "subHeader",
+        title: 'SubHeader',
         data: HeaderData,
-        content:<SubHeaderContent/>,
     },
     {
         id: uuid(),
         type: "text",
         title: 'Text',
         data: HeaderData,
-        content:<TextContent/>,
     },
     
     {
@@ -40,20 +37,17 @@ export const ITEMS = [
         type: "image",
         title: 'Image',
         data: HeaderData,
-        content:<ImageContent/>,
     },
     {
         id: uuid(),
         type: "code",
         title: 'Code',
         data: HeaderData,
-        content:<CodeContent/>,
     },
     {
         id: uuid(),
         type: "video",
         title: 'Video',
         data: HeaderData,
-        content:<VideoContent/>,
     }
 ];

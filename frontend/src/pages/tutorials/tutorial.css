@@ -52,6 +52,7 @@ hr{
     color:white;
     display:flex;
     flex-direction: column;
+    overflow-wrap: break-word;
     padding:4%;
 }
 
@@ -69,7 +70,6 @@ hr{
     min-width:100%;
     text-align: center;
     justify-content: center;
-    overflow-wrap: break-word;
     
 
   }

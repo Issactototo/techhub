@@ -3,18 +3,19 @@ import "./tutorial.css";
 import { HeadingBar, CategorySelectBar } from "../../components";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { getBlogsByCategory } from "../../functions/api/oracle/getBlogs";
 import { Loading, Tile,Tag, ClickableTile, Button } from "carbon-components-react";
+import { getBlogsByCategory } from "../../functions";
+
 
 export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
   //const cardSample = {title:"abc",description:"desciption"}
+  const navigate = useNavigate();
   const { category } = useParams();
   const [level, setLevel] = useState("Beginner");
   const [buttonlevel, setButtonLevel] = useState("Beginner");
   const [data, setData] = useState("");
   const [displayData, setDisplayData] = useState("");
   const [isDataReady, setDataReady] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchMyAPI() {
@@ -67,7 +68,11 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
                 <div className="blogsTable">
                   {displayData.map((item, index) => (
                     <>
-                      <ClickableTile className="blogCard">
+                      <ClickableTile 
+                      className="blogCard"
+                      onClick={()=>{navigate(`../blog/${item[4]}`);window.scrollTo(0, 0)}
+                      }
+                      >
                         <div>
                           <Tag className="blogCardLevel">{item[1]}</Tag>
                           <br />
@@ -75,12 +80,13 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
                           <div className="blogCardTitle">
                         
                           {item[2]}
+                          
                           </div>
                           </div>
                           <br />
                           <div className='blogCardBottom'>
-                          <p className="blogCardBottomText">{( item[3].split(",")[0])}</p>
                           <p className="blogCardBottomText">{(item[0])}</p>
+                          <p className="blogCardBottomText">{( item[3].split(",")[0])}</p>
                           </div>
                           </div>
                       </ClickableTile>
