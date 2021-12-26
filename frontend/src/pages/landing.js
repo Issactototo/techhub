@@ -2,6 +2,7 @@ import React from "react";
 import HongKongImage from "../data/images/HongKong.png"
 import { Features } from "../data";
 import { Tile, Button } from "carbon-components-react";
+import { Footer } from "../components/footer";
 import { useNavigate } from "react-router";
 
 import "./pages.css"

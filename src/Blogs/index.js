@@ -3,38 +3,16 @@ const router = express.Router();
 const path = require('path')
 const {processData} = require('../functions/local/storeBlog')
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') })
+const {storeBlobAtIBM, getProfileImageIBM} = require('../functions/images/IBM/image.js')
 
 const oracledb = require('../Database')
 
 router.post("/storeImage", async function (req, res) {
-    let connection = await oracledb.getConnection({
-      user: process.env.USERNAME,
-      password: process.env.PASSWORD,
-      connectionString: process.env.CONNECTIONSTRING,
-    });
-    try {
-      const sql = `INSERT INTO Image VALUES(:1,:2) `;
-      const binds = [
-        [
-          req.body.data,
-          req.body.id
-        ],
-      ];
-      console.log("binds");
-      console.log(binds);
-      await connection.executeMany(sql, binds);
-      connection.commit();
+    const response = await storeBlobAtIBM(req.body.id, req.body.data );
+    if(response!='error'){
       res.status(200).send(req.body.id);
-    } catch (err) {
-      console.error(err);
-      res.status(502).send(err);
-    }
-    try {
-      await connection.close();
-      console.log("HEREE");
-    } catch (err) {
-      console.error(err);
-      res.status(502).send(err);
+    }else{
+      res.status(200).send('null');
     }
 });
 
@@ -115,7 +93,7 @@ router.get("/blog/:id", async function (req, res) {
   try {
     console.log(req.params.id)
     //req.params.emai
-    const sql = `SELECT EMAIL, USERNAME, CATEGORY,PUBLISHEDLEVEL, DBMS_LOB.substr(data, 3000), TITLE,PUBLISHEDDATE, ID FROM BLOG WHERE id='${req.params.id}'`;
+    const sql = `SELECT EMAIL, USERNAME, CATEGORY,PUBLISHEDLEVEL, DBMS_LOB.substr(data), TITLE,PUBLISHEDDATE, ID FROM BLOG WHERE id='${req.params.id}'`;
     
     const result = await connection.execute(sql);
     res.status(200).send(result.rows);
@@ -130,6 +108,46 @@ router.get("/blog/:id", async function (req, res) {
     console.error(err);
     res.status(502).send(err);
   }
+});
+
+
+router.get("/image/:id", async function (req, res) {
+  console.log(req.params)
+  console.log("ajbfav")
+  const response = await getProfileImageIBM(req.params.id);
+  // console.log(response)
+  if(response!='error'){
+      res.status(200).send(response);
+    }else{
+      res.status(200).send('null');
+    }
+  
+  // let connection = await oracledb.getConnection({
+  //   user: process.env.USERNAME,
+  //   password: process.env.PASSWORD,
+  //   connectionString: process.env.CONNECTIONSTRING,
+  // });
+  // try {
+  //   console.log(req.params.id)
+  //   //req.params.emai
+  //   const sql = 
+  //   // `SELECT tocharvalue, clob_to_char_func(tocharvalue, 1, 50000)
+  //   // FROM (SELECT image AS tocharvalue FROM image WHERE id='${req.params.id}')`;
+    
+  //   const result = await connection.execute(sql);
+  //   console.log(result.rows)
+  //   res.status(200).send(result.rows);
+  // } catch (err) {
+  //   console.error(err);
+  //   res.status(502).send(err);
+  // }
+  // try {
+  //   await connection.close();
+  //   console.log("HEREE");
+  // } catch (err) {
+  //   console.error(err);
+  //   res.status(502).send(err);
+  // }
 });
 
 

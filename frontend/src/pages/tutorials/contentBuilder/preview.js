@@ -6,9 +6,8 @@ import { PageFirst16, PageLast16 } from "@carbon/icons-react";
 import "./contentBuilder.css";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { processImage, submit } from "../../../functions";
+import { addImagesToData, getBlogById, submit } from "../../../functions";
 import { HeadingBar } from "../../../components";
-import { getBlogById } from "../../../functions";
 
 export const PreviewPage = () => {
   //const cardSample = {title:"abc",description:"desciption"}
@@ -49,9 +48,9 @@ export const PreviewPage = () => {
         console.log(id)
         const response = await getBlogById({id})
         const contentData = response.data[0][4]
-        // console.log('data')
-        // console.log( (JSON.parse(contentData)))
-        setData(JSON.parse(contentData))
+        // convertImage
+        const imagedAddedData = await addImagesToData(JSON.parse(contentData));
+        setData(imagedAddedData)
       }catch{
         //return error page
       }
@@ -94,9 +93,7 @@ fetchMyAPI();
               return convertData(item.type, item.data);
             })}
           </div>
-        ) : (
-          <p style={{ color: "white" }}>not ready</p>
-        )}
+        ) :  <Loading /> }
       </div>
     </div>
   );

@@ -9,9 +9,9 @@ import {
 
 export function convertData(type,data){
     switch (type){
-        case "headerContent":
+        case "header":
             return <HeaderDisplay data={data} />;
-        case "subHeaderContent":
+        case "subHeader":
             return <SubHeaderDisplay data={data} />;
         case "video":
             return <VideoDisplay data={data} />;
