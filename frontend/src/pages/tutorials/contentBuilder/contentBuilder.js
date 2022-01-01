@@ -4,9 +4,11 @@ import { MainContentBuilder } from "../../../components";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Cookies from 'js-cookie'
+import { TextInput, Modal } from "carbon-components-react";
 
 export const ContentBuilderPage = ({tempEditPath}) =>{
     const [data, setData]  = useState(new Map([]));
+    
     const navigate = useNavigate();
     //const cardSample = {title:"abc",description:"desciption"}
     useEffect(() => {
@@ -23,16 +25,15 @@ export const ContentBuilderPage = ({tempEditPath}) =>{
         }
     },[])
     function navigateToPreview(DataMap,DataList){
-        console.log("INFENAJKNF")
-        console.log(DataMap)
-        console.log(DataList)
-       navigate('/preview',  { state: { DataMap: DataMap, DataList: DataList, tempEditPath: tempEditPath, title:"title", isPreview:true} });
+        navigate('/preview',  { state: { DataMap: DataMap, DataList: DataList, tempEditPath: tempEditPath, title:"title", isPreview:true} });
     }
     return (
+        
         <MainContentBuilder 
             tempEditPath = {tempEditPath}
             setData={setData}
             data={data}
+            // navigateToPreview={()=>setIsSettingTitle(true)}
             navigateToPreview={navigateToPreview}
         />
     );

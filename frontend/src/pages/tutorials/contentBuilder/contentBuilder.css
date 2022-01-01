@@ -6,10 +6,18 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    max-width:70%;
+    min-width:70%;
+    background-color: rgb(24, 74, 117);
 }
 
 .dispayContentBackground{
     background-color: rgb(24, 74, 117);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .displayToolsBar{
@@ -30,4 +38,25 @@
     margin-left: 2%;
     min-width:10%;
     max-width:10%
+}
+
+.blogInfoSection{
+    max-width: 25%;
+    min-width: 25%;
+    margin-top: 5%;
+    font-size: 3vh;
+    padding:4%;
+    color:black;
+    margin-left: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.blogInfoSectionProfile{
+    margin-bottom: 1.2vh;
+    width:11vh;
+    border-radius: 50%;
 }

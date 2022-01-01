@@ -187,9 +187,9 @@ router.get("/userInformation/image/:email", async function (req, res) {
   const response = await getProfileImageIBM(req.params.email);
   // console.log(response)
   if(response!='error'){
-      res.status(200).send(response);
+    res.status(200).send(response);
     }else{
-      res.status(200).send('null');
+      res.status(404).send(null);
     }
   }
 )

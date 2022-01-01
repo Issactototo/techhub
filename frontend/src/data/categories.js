@@ -10,24 +10,24 @@ export const Categories = [
         title:"Frontend",
         description:"The front-end of a website is the part that users interact with",
         icon:<Laptop/>,
-        link:"./frontend"
+        link:"./Frontend"
     },
     {
         title:"Backend",
         description:"The front-end of a website is the part that users interact with",
         icon:<API/>,
-        link:"./backend"
+        link:"./Backend"
     },
     {
         title:"Database",
         description:"The front-end of a website is the part that users interact with",
         icon:<DataStore/>,
-        link:"./database"
+        link:"./Database"
     },
     {
         title:"DevOps",
         description:"The front-end of a website is the part that users interact with",
         icon:<Kubernetes/>,
-        link:"./devops"
+        link:"./Devops"
     },
 ]

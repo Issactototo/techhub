@@ -5,8 +5,8 @@ import Sidebar from "./sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbSkeleton,
   Button,
+  TextInput
 } from "carbon-components-react";
 import {
   Container,
@@ -172,6 +172,9 @@ export class MainContentBuilder extends Component {
                 Preview <Launch16 />
               </Button>
             </div>
+          </div>
+          <div>
+          
           </div>
           <div>
             <Content>

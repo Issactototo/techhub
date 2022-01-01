@@ -3,12 +3,12 @@
     justify-content: center;
     min-width:100%;
     max-width:100%;
-    margin: 3%;
+    margin-bottom: 3%;
+    margin-top: 3%;
 }
 .centerVideoBox{
     min-width:60%;
     min-height: 60vh;
-
 }
 
 .headerData{
@@ -45,7 +45,7 @@
 
 
 .imageDisplay{
-    max-width:40%;
+    max-width:70%;
     max-height:60vh;
     height:inherit;
     margin:1%
@@ -54,6 +54,7 @@
 
 
 .subHeaderDisplayBox{
+    margin-right: auto;
     margin-left: 20%;
     margin-bottom: 3%;
 }
