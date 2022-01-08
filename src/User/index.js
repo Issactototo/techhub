@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require("path");
 
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
-const oracledb = require("../Database");
+const {oracledb} = require("../Database");
 const {storeBlobAtIBM, getProfileImageIBM} = require('../functions/images/IBM/image.js')
 
 router.get("/", async function (req, res) {

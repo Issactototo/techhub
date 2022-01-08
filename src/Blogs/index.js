@@ -5,7 +5,7 @@ const {processData} = require('../functions/local/storeBlog')
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') })
 const {storeBlobAtIBM, getProfileImageIBM} = require('../functions/images/IBM/image.js')
 
-const oracledb = require('../Database')
+const {oracledb} = require('../Database')
 
 router.post("/storeImage", async function (req, res) {
     const response = await storeBlobAtIBM(req.body.id, req.body.data );

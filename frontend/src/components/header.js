@@ -28,7 +28,7 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
                     </HeaderMenu>
                     <HeaderMenu  menuLinkName="Tutorials" >
                         <HeaderMenuItem href="/menu">Menu</HeaderMenuItem>
-                        <HeaderMenuItem href="/list">List</HeaderMenuItem>
+                        {/* <HeaderMenuItem href="/list">List</HeaderMenuItem> */}
                         <HeaderMenuItem href="/menu/Frontend">Frontend</HeaderMenuItem>
                         <HeaderMenuItem href="/menu/Backend">Backend</HeaderMenuItem>
                         <HeaderMenuItem href="/menu/Database">Database</HeaderMenuItem>
