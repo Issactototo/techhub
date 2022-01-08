@@ -2,6 +2,7 @@ const nodemailer = require('nodemailer');
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') })
 const express = require("express");
+const uuid = require('uuid');
 const router = express.Router();
 const {redisClient} = require("../Database")
 const transporter = nodemailer.createTransport({
@@ -31,7 +32,10 @@ router.post("/acceptUser", async function (req, res) {
 });
 
 router.post("/generateEmail", async function (req, res) {
-    redisClient.set('foo', 'bar', (err, reply) => {
+  const newId = uuid.v4();
+  console.log("newId")
+  console.log(newId)
+    redisClient.set(newId, 'bar', 'EX', 1, (err, reply) => {
     if (err){
     res.status(500).send(err);
     }else{
@@ -39,6 +43,10 @@ router.post("/generateEmail", async function (req, res) {
     }
 
     });
+    redisClient.get(newId).then(function (result) {
+      console.log(result); // Prints "bar"
+    });
   });
+  
 
 module.exports = router;
