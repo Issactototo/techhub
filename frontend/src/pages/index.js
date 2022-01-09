@@ -4,3 +4,5 @@ export * from "./error";
 export * from "./FAQ";
 export * from "./about";
 export * from "./profile";
+export * from "./admin";
+export * from "./setPassword";

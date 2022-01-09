@@ -19,7 +19,9 @@ import {
   AboutTeamPage,
   ProfilePage,
   ContentBuilderPage,
-  PreviewPage
+  PreviewPage,
+  ApprovePage,
+  SetPasswordPage
 
 } from "./pages";
 
@@ -63,9 +65,13 @@ function App() {
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
             <Route path = '/contentBuilder' element={<ContentBuilderPage tempEditPath={tempEditPath} />}/>
             <Route path='/preview'  element={<PreviewPage/>} />
+            <Route path='/approve'  element={<ApprovePage/>} />
             </>
               :
+              <>
             <Route  path="/register" element={<ProfilePage/>}/>
+            <Route  path="/setPassword/:id" element={<SetPasswordPage/>}/>
+            </>
             }
           </Routes> 
         </MainTemplate>
