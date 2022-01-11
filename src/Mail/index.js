@@ -14,23 +14,30 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+router.post("/verifyId/:id", async function (req, res) {
+  console.log("req")
+  console.log(req.params.id)
+  try{
+  redisClient.get(req.params.id).then(function (result) {
+    if(result==null){ res.status(201).send(false); return;}
+    res.status(201).send(true);
+  });}catch{
+    console.log("HIHI")
+    res.status(501).send(result);
+  }
+});
+
 router.post("/acceptUser", async function (req, res) {
   
   const newId = uuid.v4();
   console.log("newId");
   console.log(newId);
-  redisClient.set(newId, "bar", "EX", 1, (err, reply) => {
+  redisClient.set(newId, 1, "EX", 24*60*60, (err, reply) => {
     if (err) {
       res.status(500).send(err);
       return;
     }
-    //  else {
-    //   res.status(200).send(reply);
-    // }
   });
-  // redisClient.get(newId).then(function (result) {
-  //   console.log(result); // Prints "bar"
-  // });
   const mailOptions = {
     from: process.env.gmailUser,
     to: "tototototoman@gmail.com",
