@@ -5,7 +5,7 @@ const express = require("express");
 const uuid = require("uuid");
 const router = express.Router();
 const { redisClient } = require("../Database");
-const { template } = require("./template");
+const { forgotPasswordMailTemplate, acceptedMailTemplate } = require("./template");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -32,7 +32,7 @@ router.post("/acceptUser", async function (req, res) {
   const newId = uuid.v4();
   console.log("newId");
   console.log(newId);
-  redisClient.set(newId, 1, "EX", 24*60*60, (err, reply) => {
+  redisClient.set(newId, req.params.email, "EX", 24*60*60, (err, reply) => {
     if (err) {
       res.status(500).send(err);
       return;
@@ -40,11 +40,11 @@ router.post("/acceptUser", async function (req, res) {
   });
   const mailOptions = {
     from: process.env.gmailUser,
-    to: "tototototoman@gmail.com",
+    to: req.params.email,
     subject:
       "[Action required] Congratulations! You have been accepted to TECHHUBHK.",
     text: "We are happy to share that you are accepted to become one of the content creator at TECHHUBHK. Please click here to set your password. I am so excited!",
-    html: template({ username: "Issac", link: `http://localhost:3000/setPassword/${newId}` }),
+    html: acceptedMailTemplate({ username: req.params.username, link: `http://localhost:3000/setPassword/${newId}` }),
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

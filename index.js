@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.use('/register', require("./src/Pending"));
+app.use('/pending', require("./src/Pending"));
 app.use('/user', require("./src/User"));
 app.use('/blogs', require("./src/Blogs"));
 app.use('/mail', require("./src/Mail"));

@@ -4,7 +4,31 @@ import uuid from "uuid/v4";
 const baseUrl = "http://localhost:5000";
 
 // Return the whole object of a new game
-export const submit = (input) =>
+export const getBlogById = (input) =>
+  (async () => {
+    try {
+      const res = await axios.get(`${baseUrl}/blogs/blog/${input.id}`);
+      return res;
+    } catch (e) {
+      console.log("error");
+      return "error";
+    }
+  })();
+
+export const getBlogsByCategory = (input) =>
+  (async () => {
+    try {
+      const res = await axios.get(
+        `${baseUrl}/blogs/category/${input.category}`
+      );
+      return res;
+    } catch (e) {
+      console.log("error");
+      return "error";
+    }
+  })();
+
+  export const submit = (input) =>
   (async () => {
 
     for(let component of input.data){
@@ -64,3 +88,21 @@ export const submit = (input) =>
       return("error")
     }
   })();
+
+  export const getImageById = (input) =>
+  (async () => {
+      
+    try {
+        console.log("gaklpsegokjan")
+        console.log(input)
+      const res = await axios.get(`${baseUrl}/blogs/image/${input.id}`,
+      );
+      console.log("feabfhueuaf")
+      console.log(res)
+      return res;
+    } catch (e) {
+      console.log("error")
+      return("error")
+    }
+  })();
+

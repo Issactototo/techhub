@@ -63,7 +63,7 @@ function App() {
             isLogin?
             <>
             <Route  path="/profile" element={<ProfilePage setIsLogin={setIsLogin}/>}/>
-            <Route path = '/contentBuilder' element={<ContentBuilderPage tempEditPath={tempEditPath} />}/>
+            <Route path ='/contentBuilder' element={<ContentBuilderPage tempEditPath={tempEditPath} />}/>
             <Route path='/preview'  element={<PreviewPage/>} />
             <Route path='/approve'  element={<ApprovePage/>} />
             </>
