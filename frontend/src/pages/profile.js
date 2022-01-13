@@ -10,7 +10,7 @@ import { AvatarLogo } from "../data";
 import { useNavigate } from "react-router";
 import { HeadingBar } from "../components";
 import Cookies from "js-cookie";
-import { userStoreImage, userGetImage } from "../functions/api/ibm";
+import { userStoreImage, userGetImage } from "../functions";
 import { useLocation } from "react-router-dom";
 
 export function ProfilePage({ setIsLogin }) {

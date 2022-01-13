@@ -4,7 +4,6 @@ import { MainContentBuilder } from "../../../components";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Cookies from 'js-cookie'
-import { TextInput, Modal } from "carbon-components-react";
 
 export const ContentBuilderPage = ({tempEditPath}) =>{
     const [data, setData]  = useState(new Map([]));

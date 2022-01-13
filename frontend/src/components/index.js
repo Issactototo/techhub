@@ -4,4 +4,6 @@ export * from "./headingBar";
 export * from "./contentBuilder";
 export * from "./displayContent";
 export * from "./tutorials"
-export * from "./footer"
+export * from "./footer";
+export * from "./modal";
+export * from "./landing"

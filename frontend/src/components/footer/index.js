@@ -1,174 +1,146 @@
-import { jsx, Heading, Box, Text, Flex, Container } from 'theme-ui';
-import menuItems from './data';
-import { Link } from 'react-router-dom';
+import React from "react";
+import tw from "twin.macro";
+import styled from "styled-components";
+import { css } from "styled-components/macro"; //eslint-disable-line
 
-export function Footer() {
+import LogoImage from "./images/logo-light.svg";
+import { ReactComponent as FacebookIcon } from "./images/facebook-icon.svg";
+import { ReactComponent as TwitterIcon } from "./images/twitter-icon.svg";
+import { ReactComponent as YoutubeIcon } from "./images/youtube-icon.svg";
+
+const Container = tw.div`relative bg-gray-900 text-gray-100 -mx-8 -mb-8 px-8`;
+const Content = tw.div`max-w-screen-xl mx-auto pt-16 pb-8`
+const FiveColumns = tw.div`flex flex-wrap justify-between`;
+
+const Column = tw.div`w-1/2 md:w-1/5 mb-8 md:mb-0 text-sm sm:text-base text-center md:text-left`;
+const CompanyColumn = tw.div`text-center md:text-left mb-16 lg:mb-0 w-full lg:w-1/5`;
+
+const ColumnHeading = tw.h5`font-bold uppercase`;
+
+const LinkList = tw.ul`mt-4 text-sm font-medium`;
+const LinkListItem = tw.li`mt-3`;
+const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-100 pb-1 transition duration-300`;
+
+const LogoContainer = tw.div`flex items-center justify-center lg:justify-start`;
+const LogoImg = tw.img`w-8`;
+const LogoText = tw.h5`ml-2 text-xl font-black`;
+
+const CompanyAddress = tw.p`mt-4 max-w-xs text-white  font-medium text-sm mx-auto lg:mx-0 lg:mr-4 leading-loose text-center lg:text-left`;
+
+const SocialLinksContainer = tw.div`mt-4 text-center lg:text-left`;
+const SocialLink = styled.a`
+  ${tw`cursor-pointer inline-block p-2 rounded-full bg-gray-100 text-gray-900 hover:bg-gray-500 transition duration-300 mr-4 last:mr-0`}
+  svg {
+    ${tw`w-4 h-4`}
+  }
+`;
+
+const CopyrightAndCompanyInfoRow = tw.div`pb-0 text-sm font-normal flex flex-col sm:flex-row justify-between items-center`
+const CopyrightNotice = tw.div``
+const CompanyInfo = tw.div``
+
+const Divider = tw.div`my-8 border-b-2 border-gray-800`
+export const Footer = () => {
   return (
-    <footer sx={styles.footer}>
-      <Container sx={styles.footer.container}>
-        <Box sx={styles.footer.footerTopArea}>
-          <Box sx={styles.copyrightArea}>
-            {/* <Box className="footer__logo">
-              <Logo src={FooterLogo} />
-            </Box> */}
-            <nav className="footer__menu">
-              <Link to="/" />
-              <Link to="/" />
-            </nav>
-            <Text as="p" sx={styles.copyrightArea.copyright}>
-              Copyright by 2020 RedQ, Inc
-            </Text>
-          </Box>
-          <Flex sx={styles.footer.menuArea}>
-            {menuItems &&
-              menuItems.map(({ header, items }, i) => (
-                <Box sx={styles.footer.menus} key={i}>
-                  <Heading sx={styles.footer.heading}>{header}</Heading>
-                  <nav>
-                    {items.map(({ path, label, name, icon }, i) => (
-                      <Link
-                        to={path}
-                      >
-                        {icon}
-                        {label}
-                      </Link>
-                    ))}
-                  </nav>
-                </Box>
-              ))}
-          </Flex>
-        </Box>
-      </Container>
-    </footer>
+    <Container>
+      <Content>
+        <FiveColumns>
+          <CompanyColumn>
+            <LogoContainer>
+              <LogoImg src={LogoImage} />
+              <LogoText>TechHubHK</LogoText>
+            </LogoContainer>
+            <CompanyAddress>
+              London,
+              United Kingdom
+            </CompanyAddress>
+            <SocialLinksContainer>
+              {/* <SocialLink href="https://facebook.com">
+                <FacebookIcon />
+              </SocialLink>
+              <SocialLink href="https://twitter.com">
+                <TwitterIcon />
+              </SocialLink> */}
+              <SocialLink href="https://youtube.com">
+                <YoutubeIcon />
+              </SocialLink>
+            </SocialLinksContainer>
+          </CompanyColumn>
+          <Column>
+            <ColumnHeading>Quick Links</ColumnHeading>
+            <LinkList>
+              <LinkListItem>
+                <Link href="../aboutBlog">Blog</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="../faq">FAQ</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="../aboutJoin">Join</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="../aboutTeam">About Us</Link>
+              </LinkListItem>
+            </LinkList>
+          </Column>
+          {/* <Column>
+            <ColumnHeading>Product</ColumnHeading>
+            <LinkList>
+              <LinkListItem>
+                <Link href="#">Log In</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">Personal</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">Business</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">Team</Link>
+              </LinkListItem>
+            </LinkList>
+          </Column> */}
+          <Column>
+            <ColumnHeading>Legal</ColumnHeading>
+             <LinkList>
+              {/*<LinkListItem>
+                <Link href="#">GDPR</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">Privacy Policy</Link>
+              </LinkListItem>*/}
+              <LinkListItem> 
+                <Link href="#">Terms of Service</Link>
+              </LinkListItem>
+              {/* <LinkListItem>
+                <Link href="#">Disclaimer</Link>
+              </LinkListItem> */}
+            </LinkList>
+          </Column>
+          <Column>
+            <ColumnHeading>Contact</ColumnHeading>
+            <LinkList>
+              {/* <LinkListItem>
+                +1 (234) (567)-8901
+              </LinkListItem> */}
+              <LinkListItem>
+                <Link href="mailto:hktechhub2022@gmail.com">hktechhub2022@gmail.com</Link>
+              </LinkListItem>
+              {/* <LinkListItem>
+                <Link href="#">Sales</Link>
+              </LinkListItem>
+              <LinkListItem>
+                <Link href="#">Report Abuse</Link>
+              </LinkListItem> */}
+            </LinkList>
+          </Column>
+        </FiveColumns>
+        <Divider/>
+        <CopyrightAndCompanyInfoRow>
+          <CopyrightNotice>&copy; Copyright 2022, TECHBLOGHK</CopyrightNotice>
+          {/* <CompanyInfo>An Internet Company.</CompanyInfo> */}
+        </CopyrightAndCompanyInfoRow>
+      </Content>
+    </Container>
   );
-}
-
-const styles = {
-  footer: {
-    backgroundColor: 'background_secondary',
-    container: {
-      width: '100%',
-      alignItems: 'stretch',
-    },
-    footerTopArea: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      pt: ['60px', null, null, null, 8],
-      pb: [7, null, null, null, '30px'],
-      pl: [0, null, 4, 6, null, 7],
-      pr: [0, null, 4, 6],
-    },
-    menuArea: {
-      width: [
-        '100%',
-        null,
-        null,
-        null,
-        'calc(100% - 250px)',
-        'calc(100% - 300px)',
-      ],
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      pb: 3,
-    },
-    menus: {
-      display: 'flex',
-      flexDirection: 'column',
-      mb: ['45px', null, null, '50px', '60px'],
-      pr: 3,
-      width: ['50%', null, null, '25%'],
-    },
-
-    heading: {
-      fontSize: [2, 3],
-      color: 'heading',
-      fontWeight: 'heading',
-      litterSpacing: 'heading',
-      mb: [4, null, null, null, 5, 6],
-      lineHeight: '1.35',
-    },
-
-    link: {
-      fontSize: ['14px', 1],
-      color: 'text_secondary',
-      fontWeight: 'body',
-      mb: 2,
-      cursor: 'pointer',
-      transition: 'all 0.35s',
-      display: 'flex',
-      alignItems: 'center',
-      textDecoration: 'none',
-      lineHeight: [1.5, null, 1.9],
-      svg: {
-        width: '17px',
-        mr: 2,
-        fontSize: 2,
-        flexShrink: 0,
-      },
-      '&.facebook > svg': {
-        color: '#3B5998',
-      },
-      '&.twitter > svg': {
-        color: '#55ACEE',
-      },
-      '&.github > svg': {
-        color: '#161614',
-      },
-      '&.dribbble > svg': {
-        color: '#E74D89',
-      },
-      ':hover': {
-        color: 'primary',
-      },
-      ':last-child': {
-        mb: '0px',
-      },
-    },
-  },
-  copyrightArea: {
-    width: ['100%', null, null, null, '250px', '300px'],
-    flexShrink: 0,
-    order: [2, null, null, null, 0],
-    textAlign: ['center', null, null, null, 'left'],
-    '.footer__logo': {
-      a: {
-        mr: 0,
-        img: {
-          mx: ['auto', null, null, null, 0],
-        },
-      },
-    },
-    '.footer__menu': {
-      display: 'flex',
-      justifyContent: ['center', null, null, null, 'flex-start'],
-      flexWrap: 'wrap',
-      mt: [3, null, null, null, 4],
-      a: {
-        fontSize: ['14px', 1],
-        color: 'text_secondary',
-        fontWeight: 'body',
-        mb: 1,
-        cursor: 'pointer',
-        transition: 'all 0.35s',
-        textDecoration: 'none',
-        lineHeight: [1.5, null, 1.9],
-        ':before': {
-          px: 2,
-          content: '"|"',
-          color: 'text_secondary',
-        },
-        ':first-of-type:before': {
-          display: 'none',
-        },
-        ':hover': {
-          color: 'primary',
-        },
-      },
-    },
-    copyright: {
-      fontSize: ['14px', 1],
-      color: '#6D7886',
-      pt: 1,
-    },
-  },
 };

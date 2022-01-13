@@ -15,7 +15,7 @@ import { useNavigate } from "react-router";
 import { addImagesToData, getBlogById, submit } from "../../../functions";
 import { HeadingBar } from "../../../components";
 import { AvatarLogo } from "../../../data/images";
-import { userGetImage } from "../../../functions/api/ibm"
+import { userGetImage } from "../../../functions"
 
 
 export const PreviewPage = () => {

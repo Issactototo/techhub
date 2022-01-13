@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button } from 'carbon-components-react';
 import {HeaderTemplate} from "../components";
+import { Footer } from '../components';
 import "./template.css";
 export function MainTemplate(props) {
   return (
@@ -9,6 +10,7 @@ export function MainTemplate(props) {
           <main className="main">
             {props.children}
           </main>
+          <Footer/>
     </div>
   )  
 }

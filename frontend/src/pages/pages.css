@@ -124,14 +124,20 @@
     justify-content: center;
     align-items: center;
     min-width:70%;
-    
+    padding:7%;
 
 }
 .featureSection{
     min-width:26%;
-    margin-left: 2vh;
+    margin-right: 4%;
     color:black
 }
+.featureSectionWithoutMargin{
+    min-width:26%;
+    margin-right: 4%;
+    color:black
+}
+
 
 .CenterFixedHeadingSection{
     min-width:100%;
