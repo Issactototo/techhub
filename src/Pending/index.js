@@ -68,7 +68,7 @@ router.post("/", async function (req, res) {
 });
 
 
-router.delete("/", async function (req, res) {
+router.delete("/:id", async function (req, res) {
     // console.log("req")
     // console.log(req)
     let connection = await oracledb.getConnection({
@@ -77,7 +77,7 @@ router.delete("/", async function (req, res) {
         connectionString: process.env.CONNECTIONSTRING,
     });
     try {
-      const sql = `DELETE FROM PENDINGUSER WHERE email='${req.query.email}'`;
+      const sql = `DELETE FROM PENDINGUSER WHERE email='${req.params.email}'`;
       
       const result = await connection.execute(sql);
       connection.commit();
@@ -95,7 +95,7 @@ router.delete("/", async function (req, res) {
       console.error(err);
       res.status(502).send(err);
     }
-  });
+});
 module.exports = router;
 
 // async function run() {

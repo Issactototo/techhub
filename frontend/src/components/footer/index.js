@@ -3,9 +3,8 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import LogoImage from "./images/logo-light.svg";
-import { ReactComponent as FacebookIcon } from "./images/facebook-icon.svg";
-import { ReactComponent as TwitterIcon } from "./images/twitter-icon.svg";
+import  LogoImage from "../../data/images/logo.svg";
+import { ReactComponent as GithubIcon } from "./images/github-icon.svg";
 import { ReactComponent as YoutubeIcon } from "./images/youtube-icon.svg";
 
 const Container = tw.div`relative bg-gray-900 text-gray-100 -mx-8 -mb-8 px-8`;
@@ -22,7 +21,7 @@ const LinkListItem = tw.li`mt-3`;
 const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-100 pb-1 transition duration-300`;
 
 const LogoContainer = tw.div`flex items-center justify-center lg:justify-start`;
-const LogoImg = tw.img`w-8`;
+const LogoImg = tw.img`w-12`;
 const LogoText = tw.h5`ml-2 text-xl font-black`;
 
 const CompanyAddress = tw.p`mt-4 max-w-xs text-white  font-medium text-sm mx-auto lg:mx-0 lg:mr-4 leading-loose text-center lg:text-left`;
@@ -57,10 +56,10 @@ export const Footer = () => {
             <SocialLinksContainer>
               {/* <SocialLink href="https://facebook.com">
                 <FacebookIcon />
-              </SocialLink>
-              <SocialLink href="https://twitter.com">
-                <TwitterIcon />
               </SocialLink> */}
+              <SocialLink href="https://github.com">
+                <GithubIcon />
+              </SocialLink>
               <SocialLink href="https://youtube.com">
                 <YoutubeIcon />
               </SocialLink>
@@ -112,9 +111,9 @@ export const Footer = () => {
               <LinkListItem> 
                 <Link href="../terms">Terms of Service</Link>
               </LinkListItem>
-              {/* <LinkListItem>
-                <Link href="#">Disclaimer</Link>
-              </LinkListItem> */}
+               <LinkListItem>
+                <Link href="../references">References</Link>
+              </LinkListItem> 
             </LinkList>
           </Column>
           <Column>

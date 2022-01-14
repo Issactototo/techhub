@@ -7,3 +7,4 @@ export * from "./profile";
 export * from "./admin";
 export * from "./setPassword";
 export * from "./terms";
+export * from "./references";

@@ -10,6 +10,7 @@ import {
 } from "carbon-components-react/lib/components/UIShell";
 import {LogoGithub20} from "@carbon/icons-react";
 import { LoginedSubHeader,NotLoginedSubHeader } from "./rightHeader";
+import { ReactComponent as LogoIcon } from "../data/images/logo.svg";
 
 
 
@@ -18,7 +19,7 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
         <div >
             <Header aria-label="Tech Blog HK">
                 <HeaderName href="/" prefix="">
-                    TechHubHK
+                    <LogoIcon width="7vh"/>TechHubHK
                 </HeaderName>
                 <HeaderNavigation aria-label="IBM Foundation Placement Journal">
                     <HeaderMenu menuLinkName="About" >

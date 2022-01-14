@@ -6,6 +6,7 @@ const uuid = require("uuid");
 const router = express.Router();
 const { redisClient } = require("../Database");
 const { forgotPasswordMailTemplate, acceptedMailTemplate } = require("./template");
+const {deletePendingUser} = require("../functions/Oracle")
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -27,7 +28,7 @@ router.post("/verifyId/:id", async function (req, res) {
   }
 });
 
-router.post("/acceptUser", async function (req, res) {
+router.post("/acceptUser/:email/:username", async function (req, res) {
   
   const newId = uuid.v4();
   console.log("newId");
@@ -38,6 +39,13 @@ router.post("/acceptUser", async function (req, res) {
       return;
     }
   });
+  const oracleResponse = await deletePendingUser(req.params.email);
+  console.log("oracleResponse")
+  console.log(oracleResponse)
+  if(oracleResponse=="error")  {
+    res.status(500).send(err);
+    return;
+  }
   const mailOptions = {
     from: process.env.gmailUser,
     to: req.params.email,

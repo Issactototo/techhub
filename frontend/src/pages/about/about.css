@@ -36,11 +36,11 @@
 }
 
 .halfScreen{
-    background-color:grey;
     min-width:50%;
     max-width:50%;
     padding:2vh;
     margin-right: 3vh;
+    justify-content:space-evenly;
     display:flex;
     flex-direction: column;
 }

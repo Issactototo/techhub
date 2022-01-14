@@ -1,5 +1,4 @@
 import React from "react";
-import HongKongImage from "../data/images/HongKong.png"
 import { Features } from "../data";
 import { Tile, Button } from "carbon-components-react";
 import { Footer } from "../components/footer";
@@ -63,9 +62,9 @@ export function LandingPage(){
           <LeftColumn>
             <Notification>We provide free learning tutorials about programming</Notification>
             <Heading>
-              <span>Start Learning for FREE</span>
+              <span>Start Learning Programming for FREE</span>
             </Heading>
-            <PrimaryAction>Click to Start</PrimaryAction>
+            <PrimaryAction onClick={()=>{navigate("../menu")}}>Click to Start</PrimaryAction>
           </LeftColumn>
           <RightColumn>
             <StyledResponsiveVideoEmbed
@@ -80,9 +79,10 @@ export function LandingPage(){
      {
          Features.map((feature,index)=>(
              <div className="featureSection">
-                 <Tile>
+                 <Tile style={{ paddingTop: "8%"}}>
                      <div className={`${(index===0)?"featureSectionWithoutMargin":"featureSection"}`}>
                          <h3 className="featureTitle">{feature.title}</h3>
+                         <br/>
                          <p className="featureDescription">{feature.description}</p>
                          <Button 
                              className="featureButton"
