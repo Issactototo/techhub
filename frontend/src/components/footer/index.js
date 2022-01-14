@@ -70,7 +70,7 @@ export const Footer = () => {
             <ColumnHeading>Quick Links</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="../aboutBlog">Blog</Link>
+                <Link href="../menu">Blogs</Link>
               </LinkListItem>
               <LinkListItem>
                 <Link href="../faq">FAQ</Link>
@@ -110,7 +110,7 @@ export const Footer = () => {
                 <Link href="#">Privacy Policy</Link>
               </LinkListItem>*/}
               <LinkListItem> 
-                <Link href="#">Terms of Service</Link>
+                <Link href="../terms">Terms of Service</Link>
               </LinkListItem>
               {/* <LinkListItem>
                 <Link href="#">Disclaimer</Link>

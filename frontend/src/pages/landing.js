@@ -12,7 +12,7 @@ import "./pages.css"
 
 const Container = styled.div`
 ${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
-background-image: url("https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80");
+background-image: url("https://images.unsplash.com/photo-1576788369575-4ab045b9287e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MjE1MTQ1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0  opacity-25`;
@@ -56,7 +56,7 @@ export function LandingPage(){
 
   return (
       <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
-    <Container>
+    <Container style={{marginTop:"1%"}}>
       <OpacityOverlay />
       <HeroContainer>
         <TwoColumn>

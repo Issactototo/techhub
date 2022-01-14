@@ -21,7 +21,8 @@ import {
   ContentBuilderPage,
   PreviewPage,
   ApprovePage,
-  SetPasswordPage
+  SetPasswordPage,
+  TermsPage
 
 } from "./pages";
 
@@ -57,6 +58,7 @@ function App() {
             <Route path='/aboutBlog'  element={<AboutBlogPage/>} />
             <Route path='/aboutJoin'  element={<AboutJoinPage/>} />
             <Route path='/aboutTeam'  element={<AboutTeamPage/>} />
+            <Route path='/terms'  element={<TermsPage/>} />
             <Route path='/blog/:id'  element={<PreviewPage/>} />
             <Route path='*'  element={<ErrorPage/>} />
             {

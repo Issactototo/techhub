@@ -1,19 +1,19 @@
 export const Features=[
     {
-        title:"About",
-        description:"Learn more about this website",
-        link:"../aboutBlog",
-        icon:"123"
-    },
-    {
-        title:"Courses",
-        description:"Start learning for free",
+        title:"FREE",
+        description:"The tutorials here are completely free",
         link:"../menu",
         icon:"123"
     },
     {
-        title:"Contribute",
-        description:"Become a contributor",
+        title:"OPEN SOURCE",
+        description:"Everyone can inspect the code",
+        link:"../menu",
+        icon:"123"
+    },
+    {
+        title:"Content Creator Friendly",
+        description:"Use Drag and Drop to create blog",
         link:"../aboutJoin",
         icon:"123"
     },

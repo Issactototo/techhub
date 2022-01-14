@@ -17,8 +17,8 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
     return (
         <div >
             <Header aria-label="Tech Blog HK">
-                <HeaderName href="/" prefix="HK">
-                    Tech Hub
+                <HeaderName href="/" prefix="">
+                    TechHubHK
                 </HeaderName>
                 <HeaderNavigation aria-label="IBM Foundation Placement Journal">
                     <HeaderMenu menuLinkName="About" >
@@ -38,9 +38,9 @@ export function HeaderTemplate({isLogin, setIsLogin}) {
                     <HeaderMenuItem href="/faq">FAQ</HeaderMenuItem>
                 </HeaderNavigation>
                 <HeaderGlobalBar>
-                    <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
+                    {/* <HeaderGlobalAction aria-label="Search" onClick={() => {}}>
                     <LogoGithub20 />
-                    </HeaderGlobalAction>
+                    </HeaderGlobalAction> */}
                     {isLogin?
                         <LoginedSubHeader setIsLogin={setIsLogin}/>
                         :
