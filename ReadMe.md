@@ -1,6 +1,6 @@
 # TECHBLOGHK
 
-<img src = "./frontend/src/data/images/logo.svg"/>
+<img src = "./frontend/src/data/images/logo.svg" width="500px/>
 
 ## Free Tier
 * IBM Cloud Foundry
