@@ -1,7 +1,9 @@
 # TECHBLOGHK
 
+<img src = "./frontend/src/data/images/logo.svg"/>
+
 ## Free Tier
 * IBM Cloud Foundry
-* Oracle Autunomous Database
+* IBM Cloudant
 * IBM Object Storage
 * Redis

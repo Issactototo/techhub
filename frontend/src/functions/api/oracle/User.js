@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000";
+import { baseUrl } from "../../constants";
 
 export const join = (input) =>
   (async () => {

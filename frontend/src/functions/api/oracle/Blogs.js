@@ -1,7 +1,7 @@
 import axios from "axios";
 import uuid from "uuid/v4";
 
-const baseUrl = "http://localhost:5000";
+import { baseUrl } from "../../constants";
 
 // Return the whole object of a new game
 export const getBlogById = (input) =>
