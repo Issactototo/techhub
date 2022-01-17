@@ -68,7 +68,7 @@ export function LandingPage(){
           </LeftColumn>
           <RightColumn>
             <StyledResponsiveVideoEmbed
-              url="https://www.youtube.com/embed/eeNYBMe0dAE"
+              url="https://www.youtube.com/embed/EEiTeE1Vt68"
               background="transparent"
             />
           </RightColumn>

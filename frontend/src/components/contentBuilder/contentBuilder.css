@@ -18,6 +18,7 @@ p{
 
 .dndTemplate{
     padding: 1%;
+    min-height: 90vh;
 }
 
 .BreadcrumbText{

@@ -11,8 +11,8 @@ var bodyParser = require('body-parser');
 // const oracledb = require('oracledb');
 // oracledb.initOracleClient({ libDir: process.env.HOME + '/Downloads/instantclient_19_8' });
 app.use(bodyParser.json());
+//app.use(cors())
 app.use(cors())
-
 //routes
 app.use('/pending', require("./src/Pending"));
 app.use('/user', require("./src/User"));
