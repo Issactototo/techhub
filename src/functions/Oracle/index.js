@@ -13,8 +13,6 @@ async function deletePendingUser(email) {
       connectionString: process.env.CONNECTIONSTRING,
   });
   try {
-    console.log("email")
-    console.log(email)
     const sql = `DELETE FROM PENDINGUSER WHERE EMAIL='${email}'`;
     const result = await connection.execute(sql);
     connection.commit();

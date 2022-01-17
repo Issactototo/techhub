@@ -18,12 +18,10 @@ router.get("/", async function (req, res) {
     const result = await connection.execute(sql);
     res.status(200).send(result.rows);
   } catch (err) {
-    console.error(err);
     res.status(502).send(err);
   }
   try {
     await connection.close();
-    console.log("HEREE");
   } catch (err) {
     console.error(err);
     res.status(502).send(err);
@@ -60,7 +58,6 @@ router.post("/", async function (req, res) {
   }
   try {
     await connection.close();
-    console.log("HEREE");
   } catch (err) {
     console.error(err);
     res.status(502).send(err);
@@ -69,8 +66,6 @@ router.post("/", async function (req, res) {
 
 
 router.delete("/:id", async function (req, res) {
-    // console.log("req")
-    // console.log(req)
     let connection = await oracledb.getConnection({
         user: process.env.USERNAME,
         password: process.env.PASSWORD,
@@ -81,8 +76,6 @@ router.delete("/:id", async function (req, res) {
       
       const result = await connection.execute(sql);
       connection.commit();
-      console.log("result")
-      console.log(result)
       res.status(200).send(result);
     } catch (err) {
       console.error(err);
@@ -90,7 +83,6 @@ router.delete("/:id", async function (req, res) {
     }
     try {
       await connection.close();
-      console.log("HEREE");
     } catch (err) {
       console.error(err);
       res.status(502).send(err);

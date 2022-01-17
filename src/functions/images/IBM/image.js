@@ -20,7 +20,7 @@ async function storeBlobAtIBM(itemName, fileText) {
         Body: fileText
     }).promise()
     .then(() => {
-        console.log(`Item: ${itemName} created!`);
+        // console.log(`Item: ${itemName} created!`);
         return "success";
     })
     .catch((e) => {
@@ -37,7 +37,7 @@ async function getProfileImageIBM(itemName) {
     }).promise()
     .then((data) => {
         if (data != null) {
-            console.log('File Contents: ' + Buffer.from(data.Body).toString());
+            // console.log('File Contents: ' + Buffer.from(data.Body).toString());
             return data.Body
         }    
     })

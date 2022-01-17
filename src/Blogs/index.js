@@ -38,18 +38,15 @@ router.post("/submit", async function (req, res) {
           req.body.id,
         ],
       ];
-      console.log("binds");
-      console.log(binds);
       await connection.executeMany(sql, binds);
       connection.commit();
       res.status(200).send("success");
     } catch (err) {
-      console.error(err);
+
       res.status(502).send(err);
     }
     try {
       await connection.close();
-      console.log("HEREE");
     } catch (err) {
       console.error(err);
       res.status(502).send(err);
@@ -64,7 +61,6 @@ router.get("/category/:category", async function (req, res) {
     connectionString: process.env.CONNECTIONSTRING,
   });
   try {
-    console.log(req.params.category)
     //req.params.emai
     const sql = `SELECT USERNAME, PUBLISHEDLEVEL, TITLE, PUBLISHEDDATE, ID FROM BLOG WHERE CATEGORY='${req.params.category}' `;
     
@@ -76,7 +72,6 @@ router.get("/category/:category", async function (req, res) {
   }
   try {
     await connection.close();
-    console.log("HEREE");
   } catch (err) {
     console.error(err);
     res.status(502).send(err);
@@ -91,7 +86,6 @@ router.get("/blog/:id", async function (req, res) {
     connectionString: process.env.CONNECTIONSTRING,
   });
   try {
-    console.log(req.params.id)
     //req.params.emai
     const sql = `SELECT EMAIL, USERNAME, CATEGORY,PUBLISHEDLEVEL, DBMS_LOB.substr(data), TITLE,PUBLISHEDDATE, ID FROM BLOG WHERE id='${req.params.id}'`;
     
@@ -103,7 +97,6 @@ router.get("/blog/:id", async function (req, res) {
   }
   try {
     await connection.close();
-    console.log("HEREE");
   } catch (err) {
     console.error(err);
     res.status(502).send(err);
@@ -112,8 +105,6 @@ router.get("/blog/:id", async function (req, res) {
 
 
 router.get("/image/:id", async function (req, res) {
-  console.log(req.params)
-  console.log("ajbfav")
   const response = await getProfileImageIBM(req.params.id);
   // console.log(response)
   if(response!='error'){
