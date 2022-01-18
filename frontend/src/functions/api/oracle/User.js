@@ -15,10 +15,7 @@ export const join = (input) =>
       console.log("mnfbaevhbnlkfaejfn");
       return res;
     } catch (e) {
-      console.log("mnfbaevhbnlkfaejfn");
-
-      console.log("error");
-      return "Error";
+      return "error";
     }
   })();
 
@@ -105,3 +102,21 @@ export const verifyMailId = (input) =>
       return "error";
     }
   })();
+
+
+
+export const submitPassword = (input) =>
+(async () => {
+  try {
+    const res = await axios.post(`${baseUrl}/pending/setNewUser`, {
+      email: input.email,
+      username: input.username,
+      password: input.password,
+      key: input.key,
+    });
+    return res.data;
+  } catch (e) {
+    console.log("error");
+    return "error";
+  }
+})();

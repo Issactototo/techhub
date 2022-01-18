@@ -386,7 +386,7 @@ const  acceptedMailTemplate=(input)=>{
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
+                    <span class="apple-link">London, United Kingdom</span>
                     <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
                   </td>
                 </tr>
@@ -798,8 +798,8 @@ const  forgotPasswordMailTemplate=(input)=>{
             <table role="presentation" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td class="content-block">
-                  <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                  <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
+                  <span class="apple-link">London, United Kingdom</span>
+                  
                 </td>
               </tr>
               <tr>

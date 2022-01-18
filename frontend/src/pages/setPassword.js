@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { HeadingBar } from "../components";
 import { TextInput, Button, Form, Loading, Modal } from "carbon-components-react";
 import { useParams, useNavigate } from "react-router-dom";
-import { verifyMailId } from "../functions/api";
+import { verifyMailId,submitPassword } from "../functions/api";
 
 export function SetPasswordPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [redisData, setRedisData] = useState(null);
   const [isVerifiedCode, setIsVerifiedCode] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isValidId, setValidId] = useState(true)
   const [isPasswordValid, setValidPassword] = useState(true)
   const [isConfirmedPasswordValid, setConfirmedPassword] = useState(true)
 
-  console.log(id);
   const handleSubmit = async (event) => {
+    setIsLoading(true)
       event.preventDefault();
       if(event.target.newPassword.value.length<10){
         setValidPassword(false);
@@ -24,9 +25,11 @@ export function SetPasswordPage() {
       }else{
         setValidPassword(true);
         setConfirmedPassword(true);
+        await submitPassword({email:redisData.email,username:redisData.username,password:event.target.newPassword.value,key:id})
+        navigate("../");
         //submit
       }
-      setIsLoading(true)
+      
       setIsLoading(false);
   };
   useEffect(() => {
@@ -34,11 +37,9 @@ export function SetPasswordPage() {
       let response = await verifyMailId({ id: id });
       if(!response){
         setValidId(false);
+        return;
       }
-      console.log(response)
-      //   response = await response;
-      //   console.log(response);
-      //   setData(response.data);
+      setRedisData(response);
       setIsLoading(false);
     }
     fetchMyAPI();

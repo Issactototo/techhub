@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import "./about.css";
 import { HeadingBar } from "../../components";
 import {
@@ -23,6 +24,7 @@ export const AboutJoinPage = () => {
   const [isReasonValid, setReasonValid] = useState(false);
   const [isFormValid, setFormValid] = useState(true);
   const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   function checkJoinInputValidation(email, name, reason) {
     if (name == null || name === "" || name.length < 5) {
@@ -56,10 +58,10 @@ export const AboutJoinPage = () => {
       topic: event.target.topic.value,
       isReferred: event.target.isReferred.checked.toString(),
     });
-    if (response === "Error") {
+    if (response === "error") {
       setFormValid(false);
-    // }else{
-
+    }else{
+      navigate("../thankyou");
     }
     setLoading(false);
   };
@@ -78,7 +80,7 @@ export const AboutJoinPage = () => {
                     setFormValid(true)
                 }}
             />
-          <HeadingBar title="Join us as a content creator" />
+          <HeadingBar title="Join as a content creator" />
           <div className="BackgroundVerticalTemplate">
             <Form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "2rem" }}>
