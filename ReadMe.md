@@ -1,6 +1,7 @@
 # TECHBLOGHK
 
-<img src = "./frontend/src/data/images/logo.svg" width="500px" />
+<img src = "./frontend/src/data/images/logo.svg" width="300px" />
+
 
 ## Free Tier
 * Oracle AMD Virtual Machine 
@@ -8,3 +9,6 @@
 * IBM Object Storage
 * Redis
 * CircleCI
+
+
+<img src = "./assets/architecture.jpg" width="300px" />
