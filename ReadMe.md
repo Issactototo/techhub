@@ -1,7 +1,7 @@
 # TECHBLOGHK
-
+<p align="center">
 <img src = "./frontend/src/data/images/logo.svg" width="300px" />
-
+</p>
 
 ## Free Tier
 * Oracle AMD Virtual Machine 
@@ -11,4 +11,6 @@
 * CircleCI
 
 
+<p align="center">
 <img src = "./assets/architecture.jpg" width="300px" />
+</p>
