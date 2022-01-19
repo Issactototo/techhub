@@ -8,7 +8,6 @@
 * Oracle Autonomous Database
 * IBM Object Storage
 * Redis
-* CircleCI
 
 
 <p align="center">
