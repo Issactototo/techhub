@@ -48,10 +48,10 @@
     padding:4%;
     color:black;
     margin-left: auto;
-    display:flex;
-    flex-direction: column;
+    display: inline-block;
     justify-content: center;
     text-align: center;
+    overflow-wrap: break-word;
     align-items: center;
 }
 

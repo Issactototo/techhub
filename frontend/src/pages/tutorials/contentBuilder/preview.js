@@ -166,7 +166,7 @@ export const PreviewPage = () => {
                   />
                   
                 )}
-                {blogInfo.username}
+                <p>{blogInfo.username}</p>
               </Tile>
             )}
           </>
