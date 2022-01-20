@@ -15,7 +15,8 @@ import { useNavigate } from "react-router";
 import { addImagesToData, getBlogById, submit } from "../../../functions";
 import { HeadingBar } from "../../../components";
 import { AvatarLogo } from "../../../data/images";
-import { userGetImage } from "../../../functions"
+import { userGetImage } from "../../../functions";
+import Cookies from "js-cookie";
 
 
 export const PreviewPage = () => {
@@ -35,8 +36,8 @@ export const PreviewPage = () => {
   const handleClickSubmit = async () => {
     setIsLoading(true);
     const submissionResponse = await submit({
-      email: "123",
-      username: "ToTO",
+      email: Cookies.get("userEmail"),
+      username: Cookies.get("userEmail"),
       category: state.tempEditPath[0],
       level: state.tempEditPath[1],
       data: data,
