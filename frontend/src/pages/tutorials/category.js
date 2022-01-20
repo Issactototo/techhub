@@ -95,7 +95,7 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
                 </div></div>
               ) : (
                 <div className="categoryNodata">
-                  <p className="whiteText">There are no data at this moment</p>
+                  <p className="whiteText">There is no data at this moment</p>
                 </div>
               )}
             </>

@@ -57,10 +57,10 @@ export const Footer = () => {
               {/* <SocialLink href="https://facebook.com">
                 <FacebookIcon />
               </SocialLink> */}
-              <SocialLink href="https://github.com">
+              <SocialLink href="https://github.com/Issactoto/techhub">
                 <GithubIcon />
               </SocialLink>
-              <SocialLink href="https://youtube.com">
+              <SocialLink href="https://www.youtube.com/channel/UC_Y6gJGiTmh-uFTyj_M1P7g">
                 <YoutubeIcon />
               </SocialLink>
             </SocialLinksContainer>
