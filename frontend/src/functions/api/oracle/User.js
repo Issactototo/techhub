@@ -104,7 +104,6 @@ export const verifyMailId = (input) =>
   })();
 
 
-
 export const submitPassword = (input) =>
 (async () => {
   try {
@@ -113,6 +112,21 @@ export const submitPassword = (input) =>
       username: input.username,
       password: input.password,
       key: input.key,
+    });
+    return res.data;
+  } catch (e) {
+    console.log("error");
+    return "error";
+  }
+})();
+
+
+export const loginAdmin = (input) =>
+(async () => {
+  try {
+    const res = await axios.post(`${baseUrl}/user/loginAdmin`, {
+      purpose: input.purpose,
+      password: input.password,
     });
     return res.data;
   } catch (e) {

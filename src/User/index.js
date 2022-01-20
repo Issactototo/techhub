@@ -179,4 +179,29 @@ router.get("/userInformation/image/:email", async function (req, res) {
   }
 )
 
+router.post("/loginAdmin", async function (req, res) {
+  // console.log("req")
+  let connection = await oracledb.getConnection({
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    connectionString: process.env.CONNECTIONSTRING,
+  });
+  try {
+    const sql = `SELECT * FROM ADMIN where PURPOSE ='${req.body.purpose}' and PASSWORD ='${req.body.password}' `;
+    const result = await connection.execute(sql);
+    connection.commit();
+    if (result == undefined || result == null || result.rows.length == 0) {
+      res.status(200).send(false);
+    }
+    res.status(200).send(true);
+  } catch (err) {
+    res.status(502).send(err);
+  }
+  try {
+    await connection.close();
+  } catch (err) {
+    res.status(502).send(err);
+  }}
+)
+
 module.exports = router;

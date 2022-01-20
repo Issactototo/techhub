@@ -1,7 +1,7 @@
 import { CodeSnippet, TextArea,FileUploader } from 'carbon-components-react';
 import { useState, useEffect } from 'react';
 export const TextContent =({id,data,setData})=> {
-    const [value, setValue]= useState("1");
+    const [value, setValue]= useState("");
 
     useEffect(() => {
         if(data.get(id)!=null){

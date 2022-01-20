@@ -111,18 +111,21 @@ export function ProfilePage({ setIsLogin }) {
             </div>
           </Tile>
           <div className="CopyTextSection">
+
+          {/* <div className="smallSectionBox">
+              <p className="whiteText">Username:</p>
+              <CodeSnippet type="single" className="blackText">
+                PublicLink
+              </CodeSnippet>
+            </div> */}
+
             <div className="smallSectionBox">
-              <p className="whiteText">User Name:</p>
+              <p className="whiteText">Email:</p>
               <CodeSnippet type="single" className="blackText">
                 {userName}
               </CodeSnippet>
             </div>
-            <div className="smallSectionBox">
-              <p className="whiteText">Public Link:</p>
-              <CodeSnippet type="single" className="blackText">
-                PublicLink
-              </CodeSnippet>
-            </div>
+            
             <div className="smallSectionBox">
               <Button
                 onClick={() => {
