@@ -95,7 +95,6 @@ export function ProfilePage({ setIsLogin }) {
                 className="profileUploadBox"
                 onChange={(event) => {
                   const reader = new FileReader();
-                  console.log("fegsfnb");
                   reader.onloadend = async () => {
                     // console.log(reader.result)
                     setProfileImage(reader.result);

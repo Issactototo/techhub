@@ -28,6 +28,6 @@ export const Categories = [
         title:"DevOps",
         description:"The front-end of a website is the part that users interact with",
         icon:<Kubernetes/>,
-        link:"./Devops"
+        link:"./DevOps"
     },
 ]
