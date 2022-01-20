@@ -17,7 +17,7 @@ export function SetPasswordPage() {
   const handleSubmit = async (event) => {
     setIsLoading(true)
       event.preventDefault();
-      if(event.target.newPassword.value.length<10){
+      if(event.target.newPassword.value.length<7){
         setValidPassword(false);
       }else if (event.target.newPassword.value!==event.target.confirmedPassword.value){
         setValidPassword(true);
