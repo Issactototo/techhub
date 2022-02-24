@@ -2,7 +2,7 @@ export const Features=[
     {
         title:"OPEN SOURCE",
         description:"Everyone can inspect the code",
-        link:"../menu",
+        link:"../aboutBlog",
         icon:"123"
     },
     {

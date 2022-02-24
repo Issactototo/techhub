@@ -73,8 +73,8 @@
     display:none
   }
   #CenterFixedHeadingSection{
-    font-size: 10vh;
-    min-height:40vh;
+    font-size: 6vh;
+    min-height:30vh;
   }
   #settingProfileTile{
     min-width:80vh
