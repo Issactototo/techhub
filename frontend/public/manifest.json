@@ -1,6 +1,8 @@
 {
   "short_name": "TechhubHK",
   "name": "TechHub HK",
+  "orientation": "portrait-primary",
+  "categories": ["books", "technology"],
   "icons": [
     {
       "src": "favicon.ico",
