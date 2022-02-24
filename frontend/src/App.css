@@ -136,6 +136,15 @@
     font-size: 3vh;
     margin-left: 2%;
   }
+  #BackgroundVerticalWidthLimit80Template{
+    max-width: 80%;
+  }
+  #developerImage{
+    max-width: 70%;
+  }
+  #joinBackgroundTemplate{
+    padding:6%
+  }
 }
 
 html,body{

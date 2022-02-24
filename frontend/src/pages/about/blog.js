@@ -8,7 +8,7 @@ export const AboutBlogPage = () => {
     <div className="headingTemplate">
       <HeadingBar title="About this blog" />
       <div className="BackgroundVerticalTemplate">
-        <div className="BackgroundVerticalWidthLimit80Template">
+        <div className="BackgroundVerticalWidthLimit80Template" id="BackgroundVerticalWidthLimit80Template">
           <div className="quote">
               <div className="quoteContent">
             "Developer, Developer, Developer" 
@@ -23,7 +23,7 @@ export const AboutBlogPage = () => {
           </div>
         </div>
         <br/>
-        <img src={DeveloperImage} alt ="developer"/>
+        <img src={DeveloperImage} alt ="developer" id="developerImage" />
       </div>
     </div>
   );

@@ -81,7 +81,7 @@ export const AboutJoinPage = () => {
                 }}
             />
           <HeadingBar title="Join as a content creator" />
-          <div className="BackgroundVerticalTemplate">
+          <div className="BackgroundVerticalTemplate" id="joinBackgroundTemplate">
             <Form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "2rem" }}>
                 <TextInput
