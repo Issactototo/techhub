@@ -66,7 +66,7 @@ export function LandingPage(){
             </Heading>
             <PrimaryAction onClick={()=>{navigate("../menu")}}>Click to Start</PrimaryAction>
           </LeftColumn>
-          <RightColumn>
+          <RightColumn id="landingVideo">
             <StyledResponsiveVideoEmbed
               url="https://www.youtube.com/embed/EEiTeE1Vt68"
               background="transparent"
@@ -75,10 +75,10 @@ export function LandingPage(){
         </TwoColumn>
       </HeroContainer>
     </Container>
-     <div className="features">
+     <div className="features" id = "features">
      {
          Features.map((feature,index)=>(
-             <div className="featureSection">
+             <div className="featureSection" id ="featureSection">
                  <Tile style={{ paddingTop: "8%"}}>
                      <div className={`${(index===0)?"featureSectionWithoutMargin":"featureSection"}`}>
                          <h3 className="featureTitle">{feature.title}</h3>

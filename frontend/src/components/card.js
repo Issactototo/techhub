@@ -10,8 +10,7 @@ export const Card = ({card} ) =>{
     const navigate = useNavigate();
 
     return (
-        <div >
-            <ClickableTile className="tile">
+            <ClickableTile className="tile" id = "menuTile">
                 <h3>{card.title}{card.icon}</h3>
                 <div className="content">
                     <p>{card.description}</p>
@@ -20,6 +19,5 @@ export const Card = ({card} ) =>{
                 <Button onClick={()=>{navigate(card.link);window.scrollTo(0, 0)}}>Learn {card.title} </Button>
                 </div>
             </ClickableTile>
-        </div>
     );
 }

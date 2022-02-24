@@ -3,9 +3,14 @@ import "./tutorial.css";
 import { HeadingBar, CategorySelectBar } from "../../components";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
-import { Loading, Tile,Tag, ClickableTile, Button } from "carbon-components-react";
+import {
+  Loading,
+  Tile,
+  Tag,
+  ClickableTile,
+  Button,
+} from "carbon-components-react";
 import { getBlogsByCategory } from "../../functions";
-
 
 export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
   //const cardSample = {title:"abc",description:"desciption"}
@@ -23,7 +28,7 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
       response = await response;
       console.log(response);
       setData(response.data);
-      setDisplayData(response.data)
+      setDisplayData(response.data);
       setDataReady(true);
     }
     fetchMyAPI();
@@ -34,18 +39,17 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
       {isDataReady ? null : <Loading />}
       <HeadingBar title={category} />
       <div className="BackgroundCategoryTemplate">
-        <div className="selectLevelBar">
+        <div className="selectLevelBar" id= "selectLevelBar">
           <CategorySelectBar
             setLevel={setLevel}
-            setButtonLevel={
-              setButtonLevel
-            }
+            setButtonLevel={setButtonLevel}
             data={data}
-          setDisplayData ={setDisplayData}
+            setDisplayData={setDisplayData}
           />
           {isLogin ? (
             <Button
               className="initBlogButton"
+              id="initBlogButton"
               onClick={() => {
                 setTempEditPath([category, buttonlevel]);
                 navigate("../contentBuilder");
@@ -57,50 +61,46 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
         </div>
         <hr />
 
-        
-          {displayData === "" ? (
-            <p className="whiteText">Loading Blogs</p>
-          ) : (
-            <>
-           
-              {displayData.length != 0 ? (
-                 <div className="cateogriesContainer">
-                <div className="blogsTable">
+        {displayData === "" ? (
+          <p className="whiteText">Loading Blogs</p>
+        ) : (
+          <>
+            {displayData.length != 0 ? (
+              <div className="cateogriesContainer">
+                <div className="blogsTable" id="blogsTable">
                   {displayData.map((item, index) => (
                     <>
-                      <ClickableTile 
-                      className="blogCard"
-                      onClick={()=>{navigate(`../blog/${item[4]}`);window.scrollTo(0, 0)}
-                      }
+                      <ClickableTile
+                        className="blogCard"
+                        onClick={() => {
+                          navigate(`../blog/${item[4]}`);
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         <div>
                           <Tag className="blogCardLevel">{item[1]}</Tag>
-                          <br />
                           <div className="blogCardTitleDiv">
-                          <div className="blogCardTitle">
-                        
-                          {item[2]}
-                          
+                            <div className="blogCardTitle">{item[2]}</div>
                           </div>
+                          <div className="blogCardBottom">
+                            <p className="blogCardBottomText">{item[0]}</p>
+                            <p className="blogCardBottomText">
+                              {item[3].split(",")[0]}
+                            </p>
                           </div>
-                          <br />
-                          <div className='blogCardBottom'>
-                          <p className="blogCardBottomText">{(item[0])}</p>
-                          <p className="blogCardBottomText">{( item[3].split(",")[0])}</p>
-                          </div>
-                          </div>
+                        </div>
                       </ClickableTile>
                     </>
                   ))}
-                </div></div>
-              ) : (
-                <div className="categoryNodata">
-                  <p className="whiteText">There is no data at this moment</p>
                 </div>
-              )}
-            </>
-          )}
-        
+              </div>
+            ) : (
+              <div className="categoryNodata">
+                <p className="whiteText">There is no data at this moment</p>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

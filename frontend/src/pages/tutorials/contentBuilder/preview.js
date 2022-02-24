@@ -103,7 +103,7 @@ export const PreviewPage = () => {
     <div className="headingTemplate">
       <div className="BackgroundVerticalTemplate">
       <HeadingBar title={state ? title : blogInfo.title} />
-      <div className="previewPage">
+      <div className="previewPage" id="previewPage">
         {isLoading ? (
           <Loading />
         ) : (
@@ -155,7 +155,7 @@ export const PreviewPage = () => {
               <Loading />
             )}
             {state ? null : (
-              <Tile className="blogInfoSection">
+              <Tile className="blogInfoSection" id="blogInfoSection">
                 {blogInfo.image ? (
                   <img className="blogInfoSectionProfile" src={blogInfo.image} />
                   
@@ -166,7 +166,7 @@ export const PreviewPage = () => {
                   />
                   
                 )}
-                <p>{blogInfo.username}</p>
+                <p id="blogInfoUsername">{blogInfo.username}</p>
               </Tile>
             )}
           </>

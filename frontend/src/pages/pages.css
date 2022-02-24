@@ -131,16 +131,18 @@
 .featureSection{
     min-width:26%;
     min-height:20vh;
-    max-height:20vh;
     margin-right: 4%;
     color:black;
+    display:flex;
+    flex-direction: column;
 }
 .featureSectionWithoutMargin{
     min-width:26%;
     min-height:20vh;
-    max-height:20vh;
     margin-right: 4%;
-    color:black
+    color:black;
+    display:flex;
+    flex-direction: column;
 }
 
 

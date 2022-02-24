@@ -116,7 +116,7 @@ export const Footer = () => {
               </LinkListItem> 
             </LinkList>
           </Column>
-          <Column>
+          <Column id = "contactColumn">
             <ColumnHeading>Contact</ColumnHeading>
             <LinkList>
               {/* <LinkListItem>

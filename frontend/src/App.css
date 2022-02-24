@@ -39,3 +39,105 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+@media (max-width: 800px) {
+  #featureSection {
+    min-width: 100%;
+    margin-top:3%
+  }
+  #features{
+    display: flex;
+    flex-direction: column;
+  }
+  #landingVideo{
+    width:80%
+  }
+  #menuDisplayTemplate{
+    display:flex;
+    flex-direction: column;
+  }
+  #menuTile{
+    min-width:80%;
+    max-width: 80%;
+    margin-right: 0;
+    margin-top: 4%;
+  }
+  #menuDisplayTemplate{
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+  #contactColumn{
+    display:none
+  }
+  #CenterFixedHeadingSection{
+    font-size: 10vh;
+    min-height:40vh;
+  }
+  #settingProfileTile{
+    min-width:80vh
+  }
+  #CopyTextSection{
+    flex-direction: column;
+
+  }
+  #profileLogoutButton{
+    margin-top: 14%;
+  }
+  #profileEmailSnippet{
+    margin-top: 14%;
+  }
+  #profileEmailText{
+    display:none
+  }
+  #selectLevelBar{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items:center;
+    margin-bottom: 5%;
+    position:relative;
+    left:0%;
+  }
+  #initBlogButton{
+    margin-left:0
+  }
+  #blogsTable{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+  }
+  #previewPage{
+    min-width: none;
+    max-width: none;
+    width:95%;
+    padding-top: 0%;
+    padding-bottom:  0%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  #blogInfoSection{
+    max-width: none;
+    min-width: none;
+    margin-top: 5%;
+    padding:4%;
+    color:black;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow-wrap: break-word;
+    align-items: center;
+  }
+  #blogInfoUsername{
+    font-size: 3vh;
+    margin-left: 2%;
+  }
+}
+
+html,body{
+  overflow-x: hidden;
+}

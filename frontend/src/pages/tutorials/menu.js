@@ -9,7 +9,7 @@ export const TutorialMenuPage = () =>{
     return (
         <div className="headingTemplate">
             <HeadingBar title="Menu"/>  
-            <div className="BackgroundDisplayTemplate">
+            <div className="BackgroundDisplayTemplate" id="menuDisplayTemplate">
                 
                 {Categories.map((category) => (<Card card={category} /> ))}
             </div>

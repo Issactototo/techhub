@@ -6,7 +6,7 @@ import "./components.css";
 
 export const HeadingBar = ({title}) =>{
     return (
-        <div className="CenterFixedHeadingSection">
+        <div className="CenterFixedHeadingSection" id="CenterFixedHeadingSection">
         {title}
     </div>
     );

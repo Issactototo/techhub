@@ -30,13 +30,13 @@ export function ProfilePage({ setIsLogin }) {
     //     setCounter(false);
     // }
     async function fetchMyAPI() {
-        setIsLoading(true)
-        console.log(typeof null);
-        console.log(typeof state);
-        if (state !== null) {
-          console.log("Cookies.get(");
-          setUserName(state.email);
-          Cookies.set("userEmail", state.email);
+      setIsLoading(true);
+      console.log(typeof null);
+      console.log(typeof state);
+      if (state !== null) {
+        console.log("Cookies.get(");
+        setUserName(state.email);
+        Cookies.set("userEmail", state.email);
         //   if (state.image !== "null") {
         //     const img = new Buffer.from(state.image).toString("ascii");
         //     console.log("image", img);
@@ -45,38 +45,36 @@ export function ProfilePage({ setIsLogin }) {
         //     setProfileImage(new Buffer.from(state.image).toString("ascii"));
         //   }
         // } else {
+      }
+      if (Cookies.get("userEmail") != null) {
+        setUserName(Cookies.get("userEmail"));
+        console.log("aefuioaebfa");
+        console.log(Cookies.get("userEmail"));
+        // console.log(Cookies.get('profileImage'))
+        // if(Cookies.get('profileImage')!=null){
+        //     setProfileImage(Cookies.get('profileImage'))
+        // };
+        console.log(Cookies.get("userEmail"));
+        const tempProfileImage = await userGetImage({
+          email: Cookies.get("userEmail"),
+        });
+        console.log(tempProfileImage.data);
+        console.log("tempProfileImage");
+        if (tempProfileImage !== "error") {
+          setProfileImage(tempProfileImage.data);
         }
-          if (Cookies.get("userEmail") != null) {
-            setUserName(Cookies.get("userEmail"));
-            console.log("aefuioaebfa");
-            console.log(Cookies.get("userEmail"));
-            // console.log(Cookies.get('profileImage'))
-            // if(Cookies.get('profileImage')!=null){
-            //     setProfileImage(Cookies.get('profileImage'))
-            // };
-            console.log(Cookies.get("userEmail"))
-            const tempProfileImage = await userGetImage({email:Cookies.get("userEmail")});
-            console.log(tempProfileImage.data)
-            console.log('tempProfileImage')
-            if (tempProfileImage !== "error") {
-              setProfileImage(tempProfileImage.data);
-            }
-          }
-        setIsLoading(false)
+      }
+      setIsLoading(false);
     }
-    fetchMyAPI()
+    fetchMyAPI();
   }, []);
   return (
     <div className="headingTemplate">
-      {
-        isLoading?
-        <Loading/>
-        :null
-      }
+      {isLoading ? <Loading /> : null}
       <HeadingBar title="Profile" />
       <div className="BackgroundFAQTemplate">
         <div className="profileTemplate">
-          <Tile className="ProfileTile">
+          <Tile className="ProfileTile" id="settingProfileTile">
             {profileImage != null ? (
               <img src={profileImage} className="profileImage" />
             ) : (
@@ -109,9 +107,8 @@ export function ProfilePage({ setIsLogin }) {
               />
             </div>
           </Tile>
-          <div className="CopyTextSection">
-
-          {/* <div className="smallSectionBox">
+          <div className="CopyTextSection" id="CopyTextSection">
+            {/* <div className="smallSectionBox">
               <p className="whiteText">Username:</p>
               <CodeSnippet type="single" className="blackText">
                 PublicLink
@@ -119,12 +116,12 @@ export function ProfilePage({ setIsLogin }) {
             </div> */}
 
             <div className="smallSectionBox">
-              <p className="whiteText">Email:</p>
-              <CodeSnippet type="single" className="blackText">
+              <p className="whiteText" id="profileEmailText">Email:</p>
+              <CodeSnippet type="single" className="blackText" id="profileEmailSnippet">
                 {userName}
               </CodeSnippet>
             </div>
-            
+
             <div className="smallSectionBox">
               <Button
                 onClick={() => {
@@ -132,6 +129,7 @@ export function ProfilePage({ setIsLogin }) {
                   setIsLogin(false);
                   navigate("../");
                 }}
+                id="profileLogoutButton"
               >
                 Logout
               </Button>
