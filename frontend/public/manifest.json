@@ -39,5 +39,17 @@
       "name": "Join us",
       "url": "/aboutJoin"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-1.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    },
+    {
+      "src": "/images/screenshot-2.jpg",
+      "type": "image/jpg",
+      "sizes": "540x720"
+    }
   ]
 }
