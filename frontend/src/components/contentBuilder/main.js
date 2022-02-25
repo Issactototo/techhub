@@ -29,8 +29,8 @@ import Cookies from "js-cookie";
 export class MainContentBuilder extends Component {
   constructor(props) {
     super(props);
-    console.log("this.props.prefixes");
-    console.log(this.props.tempEditPath);
+    // console.log("this.props.prefixes");
+    // console.log(this.props.tempEditPath);
   }
 
   componentDidMount() {
@@ -64,19 +64,29 @@ export class MainContentBuilder extends Component {
     ["Editable"]: [],
   };
 
-  saveMapState() {
+  async saveMapState() {
     const ArrayForm = Array.from(this.state["Editable"]);
     console.log(ArrayForm);
     const tempArray = [];
+    console.log("XXXXXXXXX");
     for (let x of ArrayForm) {
+      console.log(x)
       tempArray.push(JSON.stringify(x));
     }
     Cookies.set("prevState", JSON.stringify(tempArray));
-    console.log("XXXXXXXXX");
+    
     const mapJson = Object.fromEntries(this.props.data);
-    console.log(this.props.data);
-    Cookies.set("prevStateMap", JSON.stringify(mapJson));
+    console.log(mapJson);
+    for (const key in  mapJson) {
+      if(mapJson[key] && mapJson[key].length>1000){
+        mapJson[key]=null
+      }
+    }
+    const tempPrevStateMap = await JSON.stringify(mapJson)
+    
+    await Cookies.set("prevStateMap",tempPrevStateMap);
     console.log("YYYYYYYYYY");
+    
     // console.log("prevState")
     console.log(Cookies.get("prevStateMap"));
   }
@@ -148,7 +158,7 @@ export class MainContentBuilder extends Component {
             </Breadcrumb>
             <div className="topContentBuilderRightBar">
               <Button
-                onClick={() => this.saveMapState()}
+                onClick={ async () => this.saveMapState()}
               >
                 Save <Touch_116 />
               </Button>

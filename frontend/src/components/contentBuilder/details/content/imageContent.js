@@ -46,7 +46,7 @@ export const ImageContent  =({id,data,setData})=> {
                     buttonLabel="Add files"
                     filenameStatus="edit"
                     iconDescription="Clear file"
-                    labelDescription="only .jpg files at 500mb or less"
+                    labelDescription={<div style={{diplay:"flex",justifyContent:"center",textAlign:"center"}}><>Images cannot be saved!! </><br/><>only .jpg files at 500mb or less. "</></div>}
                     labelTitle="Upload"
                     className="imageContent"
                     onChange={event => 
@@ -60,7 +60,7 @@ export const ImageContent  =({id,data,setData})=> {
                                     console.log(reader.result)
                                     const tempData = data;
                                     tempData.set(id,reader.result)
-                                    setData(tempData);
+                                    // setData(tempData);
                                 };
                                 reader.readAsDataURL(event.target.files[0]);
 

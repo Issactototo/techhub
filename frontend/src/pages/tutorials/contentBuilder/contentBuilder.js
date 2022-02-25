@@ -13,7 +13,6 @@ export const ContentBuilderPage = ({tempEditPath}) =>{
     useEffect(() => {
         const cookiesPrevStateMap = Cookies.get("prevStateMap");
         if(cookiesPrevStateMap!=null){
-            console.log("cgvhbjkl")
             console.log(JSON.parse(cookiesPrevStateMap))
             const cookiesPrevMapJson = JSON.parse(cookiesPrevStateMap)
             const cookiesPrevMap = new Map(Object.entries(cookiesPrevMapJson));
