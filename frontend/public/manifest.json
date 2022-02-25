@@ -15,7 +15,7 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "icon.jpg",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -23,5 +23,21 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#237ccd"
+  "background_color": "#237ccd",
+  "shortcuts" : [
+    {
+      "name": "Menu",
+      "url": "/menu",
+      "description": "Menu of the categories"
+    },
+    {
+      "name": "About Blog",
+      "url": "/aboutBlog",
+      "description": "Introduction of the blog"
+    },
+    {
+      "name": "Join us",
+      "url": "/aboutJoin"
+    }
+  ]
 }
