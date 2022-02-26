@@ -5,11 +5,11 @@ import { Footer } from '../components';
 import "./template.css";
 export function MainTemplate(props) {
   return (
-    <div className="background">
+    <div className="backgroundMain">
           <HeaderTemplate isLogin={props.isLogin} setIsLogin={props.setIsLogin}/>
-          <main className="main">
+          <div className="main">
             {props.children}
-          </main>
+          </div>
           <Footer/>
     </div>
   )  

@@ -2,12 +2,12 @@
 import React,{useEffect} from "react";
 import { MainContentBuilder } from "../../../components";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import Cookies from 'js-cookie'
 
 export const ContentBuilderPage = ({tempEditPath}) =>{
     const [data, setData]  = useState(new Map([]));
-    
+    const { category,level } = useParams();
     const navigate = useNavigate();
     //const cardSample = {title:"abc",description:"desciption"}
     useEffect(() => {
@@ -28,7 +28,7 @@ export const ContentBuilderPage = ({tempEditPath}) =>{
     return (
         
         <MainContentBuilder 
-            tempEditPath = {tempEditPath}
+            tempEditPath = {[category,level]}
             setData={setData}
             data={data}
             // navigateToPreview={()=>setIsSettingTitle(true)}

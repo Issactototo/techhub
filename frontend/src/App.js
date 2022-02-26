@@ -38,7 +38,6 @@ function App() {
   }, []);
 
   return (
-    <div>
       <Router>
         <MainTemplate isLogin={isLogin} setIsLogin={setIsLogin}>
           <Routes>
@@ -71,7 +70,7 @@ function App() {
                   element={<ProfilePage setIsLogin={setIsLogin} />}
                 />
                 <Route
-                  path="/contentBuilder"
+                  path="/contentBuilder/:category/:level"
                   element={<ContentBuilderPage tempEditPath={tempEditPath} />}
                 />
                 <Route path="/preview" element={<PreviewPage />} />
@@ -86,7 +85,6 @@ function App() {
           </Routes>
         </MainTemplate>
       </Router>
-    </div>
   );
 }
 

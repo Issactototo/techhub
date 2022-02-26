@@ -52,7 +52,7 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
               id="initBlogButton"
               onClick={() => {
                 setTempEditPath([category, buttonlevel]);
-                navigate("../contentBuilder");
+                navigate(`../contentBuilder/${category}/${buttonlevel}`);
               }}
             >
               Create {buttonlevel}
@@ -72,6 +72,7 @@ export const TutorialCategoryPage = ({ setTempEditPath, isLogin }) => {
                     <>
                       <ClickableTile
                         className="blogCard"
+                        id="blogCard"
                         onClick={() => {
                           navigate(`../blog/${item[4]}`);
                           window.scrollTo(0, 0);

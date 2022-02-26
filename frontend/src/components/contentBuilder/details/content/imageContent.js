@@ -46,7 +46,7 @@ export const ImageContent  =({id,data,setData})=> {
                     buttonLabel="Add files"
                     filenameStatus="edit"
                     iconDescription="Clear file"
-                    labelDescription={<div style={{diplay:"flex",justifyContent:"center",textAlign:"center"}}><>Images cannot be saved!! </><br/><>only .jpg files at 500mb or less. "</></div>}
+                    labelDescription={<div style={{diplay:"flex",justifyContent:"center",textAlign:"center"}}><>Images cannot be saved!! </><br/><>only .jpg files at 500mb or less. </></div>}
                     labelTitle="Upload"
                     className="imageContent"
                     onChange={event => 

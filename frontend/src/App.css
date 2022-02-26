@@ -1,8 +1,9 @@
 .App {
   background-color: #121619;
-  min-width:100vh;
-  max-width:100vh;
-  
+  min-width: none;
+  max-width: none;
+  padding: none;
+  margin: none;
 }
 
 .App-logo {
@@ -16,21 +17,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,91 +26,88 @@
   }
 }
 
-
-
 @media (max-width: 800px) {
   #featureSection {
     min-width: 100%;
-    margin-top:3%
+    margin-top: 3%;
   }
-  #features{
+  #features {
     display: flex;
     flex-direction: column;
   }
-  #landingVideo{
-    width:80%
+  #landingVideo {
+    width: 80%;
   }
-  #menuDisplayTemplate{
-    display:flex;
+  #menuDisplayTemplate {
+    display: flex;
     flex-direction: column;
   }
-  #menuTile{
-    min-width:80%;
+  #menuTile {
+    min-width: 80%;
     max-width: 80%;
     margin-right: 0;
     margin-top: 4%;
   }
-  #menuDisplayTemplate{
+  #menuDisplayTemplate {
     align-content: center;
     align-items: center;
     justify-content: center;
   }
-  #contactColumn{
-    display:none
+  #contactColumn {
+    display: none;
   }
-  #CenterFixedHeadingSection{
+  #CenterFixedHeadingSection {
     font-size: 6vh;
-    min-height:30vh;
+    min-height: 30vh;
   }
-  #settingProfileTile{
-    min-width:80vh
+  #settingProfileTile {
+    min-width: 80vh;
   }
-  #CopyTextSection{
+  #CopyTextSection {
     flex-direction: column;
-
   }
-  #profileLogoutButton{
+  #profileLogoutButton {
     margin-top: 14%;
   }
-  #profileEmailSnippet{
+  #profileEmailSnippet {
     margin-top: 14%;
   }
-  #profileEmailText{
-    display:none
+  #profileEmailText {
+    display: none;
   }
-  #selectLevelBar{
-    display:flex;
+  #selectLevelBar {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    align-items:center;
+    align-items: center;
     margin-bottom: 5%;
-    position:relative;
-    left:0%;
+    position: relative;
+    left: 0%;
   }
-  #initBlogButton{
-    margin-left:0
+  #initBlogButton {
+    margin-left: 0;
   }
-  #blogsTable{
-    display:flex;
+  #blogsTable {
+    display: flex;
     flex-direction: column;
-    width:90%;
+    width: 90%;
   }
-  #previewPage{
+  #previewPage {
     min-width: none;
     max-width: none;
-    width:95%;
+    width: 95%;
     padding-top: 0%;
-    padding-bottom:  0%;
+    padding-bottom: 0%;
     padding-left: 0%;
     padding-right: 0%;
   }
-  #blogInfoSection{
+  #blogInfoSection {
     max-width: none;
     min-width: none;
     margin-top: 5%;
-    padding:4%;
-    color:black;
+    padding: 4%;
+    color: black;
     margin-left: 0;
     display: flex;
     justify-content: center;
@@ -132,17 +115,63 @@
     overflow-wrap: break-word;
     align-items: center;
   }
-  #blogInfoUsername{
+  #blogInfoUsername {
     font-size: 3vh;
     margin-left: 2%;
   }
-  #BackgroundVerticalWidthLimit80Template{
+  #BackgroundVerticalWidthLimit80Template {
     max-width: 80%;
   }
-  #developerImage{
+  #developerImage {
     max-width: 70%;
   }
-  #joinBackgroundTemplate{
-    padding:6%
+  #joinBackgroundTemplate {
+    padding: 6%;
   }
+  #faqPlate {
+    min-width: 70%;
+    max-width: 70%;
+  }
+  #FAQQuestion {
+    font-size: 4vh;
+  }
+  #FAQAnswer {
+    font-size: 3vh;
+  }
+  #topContentBuilderRightBar {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 0;
+    padding: 0;
+  }
+  #previewButton {
+    margin: none;
+  }
+  #kiosk {
+    background-color: #0e4168;
+    position:static;
+    margin-bottom: 12%;
+    padding:2%;
+    width:100%
+  }
+  #droppableContent{
+    margin-right: 0;
+  }
+  #topContentBuilderBar{
+    min-width: 100%;
+  }
+  #breadcrumb{
+    display:none
+  }
+  #blogCard{
+    margin-top: 3%;
+  }
+  
+}
+
+.footer {
+  max-width: 100%;
 }

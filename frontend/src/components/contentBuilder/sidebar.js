@@ -9,6 +9,7 @@ export default class Sidebar extends Component {
                 {(provided, snapshot) => (
                     <Kiosk
                         ref={provided.innerRef}
+                        id="kiosk"
                         isDraggingOver={snapshot.isDraggingOver}>
                         {ITEMS.map((item, index) => (
                             <Draggable

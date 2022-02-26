@@ -13,13 +13,13 @@ export function FAQPage(){
             <div className="BackgroundFAQTemplate">
             
 
-                <div className="plate">
+                <div className="plate" id ="faqPlate">
                 <Accordion> 
                     {
                         Questions.map((question) => 
-                        (<AccordionItem title={<p className="FAQQuestion">{question.title}</p>}>
+                        (<AccordionItem title={<p className="FAQQuestion" id ="FAQQuestion">{question.title}</p>}>
                         <div>
-                            <p color="white" className="FAQAnswer">{question.answer}</p>
+                            <p color="white" className="FAQAnswer" id="FAQAnswer">{question.answer}</p>
                         </div>
                         </AccordionItem> ))
                     }

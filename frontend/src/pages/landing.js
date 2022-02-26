@@ -9,7 +9,7 @@ import { ResponsiveVideoEmbed } from "../components";
 import "./pages.css"
 
 const Container = styled.div`
-${tw`relative -mx-8 -mt-8 bg-center bg-cover`}
+${tw`relative bg-center bg-cover`}
 background-image: url("https://images.unsplash.com/photo-1576788369575-4ab045b9287e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MjE1MTQ1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
 `;
 
@@ -27,13 +27,6 @@ h1 {
 }
 `;
 
-const SlantedBackground = styled.span`
-${tw`relative px-4 -mx-4 py-2`}
-&::before {
-  content: "";
-  ${tw`absolute inset-0 bg-gray-100 transform -skew-x-12`}
-}
-`;
 
 const Notification = tw.span`inline-block my-4 pl-3 py-1 text-gray-100 border-l-4 border-blue-500 font-medium text-sm`;
 
@@ -53,7 +46,7 @@ export function LandingPage(){
 
 
   return (
-      <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
+      <div style={{display:"flex",flexDirection:"column",justifyContent:"center", maxWidth:"100%"}}>
     <Container style={{marginTop:"1%"}}>
       <OpacityOverlay />
       <HeroContainer>

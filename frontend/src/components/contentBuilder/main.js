@@ -6,7 +6,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   Button,
-  TextInput
+  TextInput,
 } from "carbon-components-react";
 import {
   Container,
@@ -70,23 +70,23 @@ export class MainContentBuilder extends Component {
     const tempArray = [];
     console.log("XXXXXXXXX");
     for (let x of ArrayForm) {
-      console.log(x)
+      console.log(x);
       tempArray.push(JSON.stringify(x));
     }
     Cookies.set("prevState", JSON.stringify(tempArray));
-    
+
     const mapJson = Object.fromEntries(this.props.data);
     console.log(mapJson);
-    for (const key in  mapJson) {
-      if(mapJson[key] && mapJson[key].length>1000){
-        mapJson[key]=null
+    for (const key in mapJson) {
+      if (mapJson[key] && mapJson[key].length > 1000) {
+        mapJson[key] = null;
       }
     }
-    const tempPrevStateMap = await JSON.stringify(mapJson)
-    
-    await Cookies.set("prevStateMap",tempPrevStateMap);
+    const tempPrevStateMap = await JSON.stringify(mapJson);
+
+    await Cookies.set("prevStateMap", tempPrevStateMap);
     console.log("YYYYYYYYYY");
-    
+
     // console.log("prevState")
     console.log(Cookies.get("prevStateMap"));
   }
@@ -147,159 +147,167 @@ export class MainContentBuilder extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="main">
-          <div className= "dndTemplate">
-          {console.log(this.props)}
-          <div className="topContentBuilderBar">
-            <Breadcrumb>
-              {this.props.tempEditPath.map((prefix) => {
-                const x = prefix;
-                return <BreadcrumbItem href="#"><p className="BreadcrumbText">{x}</p></BreadcrumbItem>;
-              })}
-            </Breadcrumb>
-            <div className="topContentBuilderRightBar">
-              <Button
-                onClick={ async () => this.saveMapState()}
+          <div className="dndTemplate">
+            {console.log(this.props)}
+            <div className="topContentBuilderBar" id="topContentBuilderBar">
+              <Breadcrumb id="breadcrumb">
+                {this.props.tempEditPath.map((prefix) => {
+                  const x = prefix;
+                  return (
+                    <BreadcrumbItem href="#">
+                      <p className="BreadcrumbText">{x}</p>
+                    </BreadcrumbItem>
+                  );
+                })}
+              </Breadcrumb>
+              <div
+                className="topContentBuilderRightBar"
+                id="topContentBuilderRightBar"
               >
-                Save <Touch_116 />
-              </Button>
+                <Button onClick={async () => this.saveMapState()}>
+                  Save <Touch_116 />
+                </Button>
 
-              <Button
-                style={{ marginLeft: "4vh" }}
-                onClick={() => {
-                  console.log(this.props.data);
-                  console.log(this.state);
-                  console.log("x.length");
-                  const ArrayForm = Array.from(this.state["Editable"]);
-                  const mapping = new Map([]);
-                  for (let x in ArrayForm) {
-                    mapping.set(x, JSON.stringify(ArrayForm[x]));
-                  }
-                  console.log(mapping);
-                  console.log(mapping);
-                  this.props.navigateToPreview(this.props.data, mapping);
-                }}
-              >
-                Preview <Launch16 />
-              </Button>
+                <Button
+                  style={{ marginLeft: "4vh" }}
+                  id="previewButton"
+                  onClick={() => {
+                    const ArrayForm = Array.from(this.state["Editable"]);
+                    const mapping = new Map([]);
+                    for (let x in ArrayForm) {
+                      mapping.set(x, JSON.stringify(ArrayForm[x]));
+                    }
+                    console.log(mapping);
+                    console.log(mapping);
+                    this.props.navigateToPreview(this.props.data, mapping);
+                  }}
+                >
+                  Preview <Launch16 />
+                </Button>
+              </div>
             </div>
-          </div>
-          <div>
-          
-          </div>
-          <div>
-            <Content>
-              <br />
-              {Object.keys(this.state).map((list, i) => {
-                console.log("==> list", list);
-                return (
-                  <Droppable key={list} droppableId={list}>
-                    {(provided, snapshot) => (
-                      <Container
-                        ref={provided.innerRef}
-                        isDraggingOver={snapshot.isDraggingOver}
-                      >
-                        {this.state[list].length &&
-                        Array.isArray(this.state[list])
-                          ? (console.log("HALLOWorld"),
-                            console.log(this.state[list]),
-                            console.log(this.state[list].length),
-                            this.state[list].map((item, index) => (
-                              <Draggable
-                                key={item.id}
-                                draggableId={item.id}
-                                index={index}
-                              >
-                                {(provided, snapshot) => (
-                                  <Item
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    isDragging={snapshot.isDragging}
-                                    style={provided.draggableProps.style}
-                                  >
-                                    <Handle {...provided.dragHandleProps}>
-                                      <svg
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                      >
-                                        <path
-                                          fill="currentColor"
-                                          d="M3,15H21V13H3V15M3,19H21V17H3V19M3,11H21V9H3V11M3,5V7H21V5H3Z"
-                                        />
-                                      </svg>
-                                    </Handle>
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        flexDirection: "row",
-                                        width: "100%",
-                                      }}
+            <div>
+              <Content id ="droppableContent">
+                <br />
+                {Object.keys(this.state).map((list, i) => {
+                  console.log("==> list", list);
+                  return (
+                    <Droppable key={list} droppableId={list}>
+                      {(provided, snapshot) => (
+                        <Container
+                          ref={provided.innerRef}
+                          isDraggingOver={snapshot.isDraggingOver}
+                        >
+                          {this.state[list].length &&
+                          Array.isArray(this.state[list])
+                            ? (console.log("HALLOWorld"),
+                              console.log(this.state[list]),
+                              console.log(this.state[list].length),
+                              this.state[list].map((item, index) => (
+                                <Draggable
+                                  key={item.id}
+                                  draggableId={item.id}
+                                  index={index}
+                                >
+                                  {(provided, snapshot) => (
+                                    <Item
+                                      ref={provided.innerRef}
+                                      {...provided.draggableProps}
+                                      isDragging={snapshot.isDragging}
+                                      style={provided.draggableProps.style}
                                     >
-                                      {
-                                        (console.log("heheeheheheh"),
-                                        console.log(this.props.data),
-                                        GetComponent(
-                                          item.type,
-                                          item.id,
-                                          this.props.data,
-                                          this.props.setData
-                                        ))
-                                      }
-                                    </div>
-                                    <>
-                                      <RowDelete16
-                                        onClick={() => {
-                                          // console.log("list");
-                                          // console.log(item.id);
-                                          // console.log(this.state[list]);
-
-                                          for (let x in this.state[list]) {
-                                            if (
-                                              this.state[list][x].id === item.id
-                                            ) {
-                                              // const newItems = [...this.state[list]];
-                                              // console.log("this.state.list")
-                                              // console.log(this.state[list])
-                                              var array = [...this.state[list]];
-                                              array.splice(x, 1);
-                                              this.setState({ [list]: array });
-                                              if (
-                                                this.props.data.get(item.id) !=
-                                                null
-                                              ) {
-                                                const tempData =
-                                                  this.props.data;
-                                                tempData.set(item.id, "");
-                                                this.props.setData(tempData);
-                                                console.log("tempData");
-                                                console.log(tempData);
-                                              }
-                                              // this.state[list]= y;
-                                              // console.log(this.state[list])
-                                              // console.log("LAST")
-                                              // console.log( list)
-                                              break;
-                                            }
-                                          }
+                                      <Handle {...provided.dragHandleProps}>
+                                        <svg
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                        >
+                                          <path
+                                            fill="currentColor"
+                                            d="M3,15H21V13H3V15M3,19H21V17H3V19M3,11H21V9H3V11M3,5V7H21V5H3Z"
+                                          />
+                                        </svg>
+                                      </Handle>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          flexDirection: "row",
+                                          width: "100%",
                                         }}
-                                      />
-                                    </>
-                                  </Item>
-                                )}
-                              </Draggable>
-                            )))
-                          : !provided.placeholder && <div>Drop items here</div>}
-                        {provided.placeholder}
-                      </Container>
-                    )}
-                  </Droppable>
-                );
-              })}
-            </Content>
-          </div>
-          <div>
-            <Sidebar />
-          </div>
+                                      >
+                                        {
+                                          (console.log("heheeheheheh"),
+                                          console.log(this.props.data),
+                                          GetComponent(
+                                            item.type,
+                                            item.id,
+                                            this.props.data,
+                                            this.props.setData
+                                          ))
+                                        }
+                                      </div>
+                                      <>
+                                        <RowDelete16
+                                          onClick={() => {
+                                            // console.log("list");
+                                            // console.log(item.id);
+                                            // console.log(this.state[list]);
+
+                                            for (let x in this.state[list]) {
+                                              if (
+                                                this.state[list][x].id ===
+                                                item.id
+                                              ) {
+                                                // const newItems = [...this.state[list]];
+                                                // console.log("this.state.list")
+                                                // console.log(this.state[list])
+                                                var array = [
+                                                  ...this.state[list],
+                                                ];
+                                                array.splice(x, 1);
+                                                this.setState({
+                                                  [list]: array,
+                                                });
+                                                if (
+                                                  this.props.data.get(
+                                                    item.id
+                                                  ) != null
+                                                ) {
+                                                  const tempData =
+                                                    this.props.data;
+                                                  tempData.set(item.id, "");
+                                                  this.props.setData(tempData);
+                                                  console.log("tempData");
+                                                  console.log(tempData);
+                                                }
+                                                // this.state[list]= y;
+                                                // console.log(this.state[list])
+                                                // console.log("LAST")
+                                                // console.log( list)
+                                                break;
+                                              }
+                                            }
+                                          }}
+                                        />
+                                      </>
+                                    </Item>
+                                  )}
+                                </Draggable>
+                              )))
+                            : !provided.placeholder && (
+                                <div>Drop items here</div>
+                              )}
+                          {provided.placeholder}
+                        </Container>
+                      )}
+                    </Droppable>
+                  );
+                })}
+              </Content>
+            </div>
+            <div id="contentBuilderSideBar">
+              <Sidebar />
+            </div>
           </div>
         </div>
       </DragDropContext>

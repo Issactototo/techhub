@@ -2,11 +2,16 @@
     min-height: 10vh;
     
 }
-.background{
+.backgroundMain{
     background-color: #121619;
+    max-width:100%;
     min-height:100vh;
-    color: white
+    color: white;
+    padding:0;
 }
 .main{
+    padding:0;
+    margin:0;
     padding-top: 5vh;
+    max-width: 100%;
 }

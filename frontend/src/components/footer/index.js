@@ -7,7 +7,7 @@ import  LogoImage from "../../data/images/logo.svg";
 import { ReactComponent as GithubIcon } from "./images/github-icon.svg";
 import { ReactComponent as YoutubeIcon } from "./images/youtube-icon.svg";
 
-const Container = tw.div`relative bg-gray-900 text-gray-100 -mx-8 -mb-8 px-8`;
+const Container = tw.div`relative bg-gray-900 text-gray-100`;
 const Content = tw.div`max-w-screen-xl mx-auto pt-16 pb-8`
 const FiveColumns = tw.div`flex flex-wrap justify-between`;
 
@@ -116,7 +116,7 @@ export const Footer = () => {
               </LinkListItem> 
             </LinkList>
           </Column>
-          <Column id = "contactColumn">
+          <Column id="contactColumn">
             <ColumnHeading>Contact</ColumnHeading>
             <LinkList>
               {/* <LinkListItem>

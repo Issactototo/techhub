@@ -64,7 +64,6 @@ export const submit = (input) =>
 
 export const storeImage = (image) =>
   (async () => {
-    console.log("HEREHER");
     try {
       const res = await axios.post(`${baseUrl}/blogs/storeImage`, {
         data: image,
@@ -82,10 +81,22 @@ export const storeImage = (image) =>
 export const getImageById = (input) =>
   (async () => {
     try {
-      console.log("gaklpsegokjan");
       console.log(input);
       const res = await axios.get(`${baseUrl}/blogs/image/${input.id}`);
-      console.log("feabfhueuaf");
+      console.log(res);
+      return res;
+    } catch (e) {
+      console.log("error");
+      return "error";
+    }
+  })();
+
+
+  export const deleteBlog = (input) =>
+  (async () => {
+    try {
+      console.log(input);
+      const res = await axios.delete(`${baseUrl}/blogs/blog/${input.id}`);
       console.log(res);
       return res;
     } catch (e) {
