@@ -104,6 +104,33 @@ router.get("/blog/:id", async function (req, res) {
 });
 
 
+router.delete("/blog/:id", async function (req, res) {
+  let connection = await oracledb.getConnection({
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    connectionString: process.env.CONNECTIONSTRING,
+  });
+  try {
+    //req.params.emai
+    const sql = `DELETE FROM BLOG WHERE id='${req.params.id}'`;
+    const result = await connection.execute(sql);
+    connection.commit();
+    console.log("JEAFUIO")
+    console.log(result)
+    res.status(200).send("success");
+  } catch (err) {
+    console.error(err);
+    res.status(502).send(err);
+  }
+  try {
+    await connection.close();
+  } catch (err) {
+    console.error(err);
+    res.status(502).send(err);
+  }
+});
+
+
 router.get("/image/:id", async function (req, res) {
   const response = await getProfileImageIBM(req.params.id);
   // console.log(response)
