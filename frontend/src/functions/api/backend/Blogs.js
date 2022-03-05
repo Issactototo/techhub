@@ -91,8 +91,7 @@ export const getImageById = (input) =>
     }
   })();
 
-
-  export const deleteBlog = (input) =>
+export const deleteBlog = (input) =>
   (async () => {
     try {
       console.log(input);

@@ -38,53 +38,53 @@ function App() {
   }, []);
 
   return (
-      <Router>
-        <MainTemplate isLogin={isLogin} setIsLogin={setIsLogin}>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/menu" element={<TutorialMenuPage />} />
-            <Route
-              path="/menu/:category"
-              element={
-                <TutorialCategoryPage
-                  setTempEditPath={setTempEditPath}
-                  isLogin={isLogin}
-                />
-              }
-            />
-            <Route path="/list" element={<TutorialListPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/aboutBlog" element={<AboutBlogPage />} />
-            <Route path="/aboutJoin" element={<AboutJoinPage />} />
-            <Route path="/aboutTeam" element={<AboutTeamPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/references" element={<ReferencesPage />} />
-            <Route path="/blog/:id" element={<PreviewPage />} />
-            <Route path="/thankyou" element={<ThankyouPage />} />
-            <Route path="/setPassword/:id" element={<SetPasswordPage />} />
+    <Router>
+      <MainTemplate isLogin={isLogin} setIsLogin={setIsLogin}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/menu" element={<TutorialMenuPage />} />
+          <Route
+            path="/menu/:category"
+            element={
+              <TutorialCategoryPage
+                setTempEditPath={setTempEditPath}
+                isLogin={isLogin}
+              />
+            }
+          />
+          <Route path="/list" element={<TutorialListPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/aboutBlog" element={<AboutBlogPage />} />
+          <Route path="/aboutJoin" element={<AboutJoinPage />} />
+          <Route path="/aboutTeam" element={<AboutTeamPage />} />
+          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/references" element={<ReferencesPage />} />
+          <Route path="/blog/:id" element={<PreviewPage />} />
+          <Route path="/thankyou" element={<ThankyouPage />} />
+          <Route path="/setPassword/:id" element={<SetPasswordPage />} />
 
-            {isLogin ? (
-              <>
-                <Route
-                  path="/profile"
-                  element={<ProfilePage setIsLogin={setIsLogin} />}
-                />
-                <Route
-                  path="/contentBuilder/:category/:level"
-                  element={<ContentBuilderPage tempEditPath={tempEditPath} />}
-                />
-                <Route path="/preview" element={<PreviewPage />} />
-                <Route path="/approve" element={<ApprovePage />} />
-              </>
-            ) : (
-              <>
-                <Route path="/register" element={<ProfilePage />} />
-              </>
-            )}
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </MainTemplate>
-      </Router>
+          {isLogin ? (
+            <>
+              <Route
+                path="/profile"
+                element={<ProfilePage setIsLogin={setIsLogin} />}
+              />
+              <Route
+                path="/contentBuilder/:category/:level"
+                element={<ContentBuilderPage tempEditPath={tempEditPath} />}
+              />
+              <Route path="/preview" element={<PreviewPage />} />
+              <Route path="/approve" element={<ApprovePage />} />
+            </>
+          ) : (
+            <>
+              <Route path="/register" element={<ProfilePage />} />
+            </>
+          )}
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </MainTemplate>
+    </Router>
   );
 }
 

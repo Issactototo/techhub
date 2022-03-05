@@ -61,7 +61,7 @@
     min-height: 30vh;
   }
   #settingProfileTile {
-    min-width: 80vh;
+    min-width: 40vh;
   }
   #CopyTextSection {
     flex-direction: column;

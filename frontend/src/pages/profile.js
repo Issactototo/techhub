@@ -23,12 +23,6 @@ export function ProfilePage({ setIsLogin }) {
 
   useEffect(() => {
     console.log("email");
-    // try {
-    //     console.log('HIHIHi')
-    //     console.log(state.email)
-    // }catch{
-    //     setCounter(false);
-    // }
     async function fetchMyAPI() {
       setIsLoading(true);
       console.log(typeof null);
@@ -37,24 +31,9 @@ export function ProfilePage({ setIsLogin }) {
         console.log("Cookies.get(");
         setUserName(state.email);
         Cookies.set("userEmail", state.email);
-        //   if (state.image !== "null") {
-        //     const img = new Buffer.from(state.image).toString("ascii");
-        //     console.log("image", img);
-        //     // Cookies.set('profileImage', img);
-        //     console.log(Cookies.get("profileImage"));
-        //     setProfileImage(new Buffer.from(state.image).toString("ascii"));
-        //   }
-        // } else {
       }
       if (Cookies.get("userEmail") != null) {
         setUserName(Cookies.get("userEmail"));
-        console.log("aefuioaebfa");
-        console.log(Cookies.get("userEmail"));
-        // console.log(Cookies.get('profileImage'))
-        // if(Cookies.get('profileImage')!=null){
-        //     setProfileImage(Cookies.get('profileImage'))
-        // };
-        console.log(Cookies.get("userEmail"));
         const tempProfileImage = await userGetImage({
           email: Cookies.get("userEmail"),
         });

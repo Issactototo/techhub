@@ -7,9 +7,7 @@ export async function addImagesToData(array){
     for(let i in array){
         if(array[i].type==='image'){
             const response = await getImageById({id: array[i].data});
-            console.log("faebjfeab")
             console.log(response.data)
-            
             array[i].data = response.data;
         }
     }

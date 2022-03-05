@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Features } from "../data";
-import { Tile, Button } from "carbon-components-react";
+import { Tile, Button, Loading } from "carbon-components-react";
 import { useNavigate } from "react-router";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { ResponsiveVideoEmbed } from "../components";
+import { getLandingContent } from "../functions";
 import "./pages.css"
+
+
+
 
 const Container = styled.div`
 ${tw`relative bg-center bg-cover`}
-background-image: url("https://images.unsplash.com/photo-1576788369575-4ab045b9287e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY0MjE1MTQ1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0  opacity-25`;
@@ -43,26 +46,40 @@ iframe {
 
 export function LandingPage(){
   const navigate =useNavigate();
+  const [content, changeContent] = useState(null);
+  const [isLoading, changeLoading] = useState(true);
+
+  useEffect(()=>{
+    async function fetchMyAPI() {
+      const contentfulContent = await getLandingContent();
+      changeContent(contentfulContent.data)
+      changeLoading(false)
+    }
+    
+    fetchMyAPI()
+  },[])
 
 
   return (
       <div style={{display:"flex",flexDirection:"column",justifyContent:"center", maxWidth:"100%"}}>
-    <Container style={{marginTop:"1%"}}>
+
+    <Container style={{marginTop:"1%", backgroundImage: `url(${isLoading?null:content.landingImage})`}} >
       <OpacityOverlay />
       <HeroContainer>
         <TwoColumn>
           <LeftColumn>
-            <Notification>We provide free learning tutorials about programming</Notification>
+            <Notification>{isLoading?"Loading...":content.slogan}</Notification>
             <Heading>
-              <h1>Start Learning Programming for FREE at TechHubHK</h1>
+              <h1>{isLoading?"Loading...":content.title}</h1>
             </Heading>
             <PrimaryAction onClick={()=>{navigate("../menu")}}>Click to Start</PrimaryAction>
           </LeftColumn>
           <RightColumn id="landingVideo">
-            <StyledResponsiveVideoEmbed
-              url="https://www.youtube.com/embed/EEiTeE1Vt68"
+          {isLoading?"Loading...": <StyledResponsiveVideoEmbed
+              url={content.youtube}
               background="transparent"
-            />
+            />}
+           
           </RightColumn>
         </TwoColumn>
       </HeroContainer>
@@ -90,17 +107,4 @@ export function LandingPage(){
      </div>
   );
 
-    // const navigate = useNavigate();
-    // return (
-    //     <div>
-    //         <div className="upperBanner">
-    //             <h1>Welcome to Tech Hub HK</h1>
-    //         </div>
-    //         <img src ={HongKongImage} alt="Hong Kong" className="banner"/>
-    //         <div className="downBanner">
-    //             <h2>A Tech Hub for 🇭🇰</h2>
-               
-    //         </div>
-    //     </div>
-    // );
 }
