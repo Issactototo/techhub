@@ -22,6 +22,7 @@ app.use('/pending', require("./src/Pending"));
 app.use('/user', require("./src/User"));
 app.use('/blogs', require("./src/Blogs"));
 app.use('/mail', require("./src/Mail"));
+app.use('/cms', require("./src/CMS"));
 
 app.use(express.static(path.resolve(__dirname, './frontend/build')));
 app.use(express.static("./frontend/public"));

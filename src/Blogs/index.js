@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const path = require('path')
-const {processData} = require('../functions/local/storeBlog')
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') })
 const {storeBlobAtIBM, getProfileImageIBM} = require('../functions/images/IBM/image.js')
 
