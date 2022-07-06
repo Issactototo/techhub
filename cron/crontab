@@ -1,0 +1,3 @@
+# crontab -e
+# if error, sudo chmod +x database.sh
+0 1 * * *  /home/opc/cron/database.sh > /home/opc/cron/database.log 2>&1
