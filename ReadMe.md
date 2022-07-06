@@ -11,5 +11,5 @@
 
 
 <p align="center">
-<img src = "./assets/architecture.png" width="800px" />
+<img src = "./assets/architecture.png" width="600px" />
 </p>
