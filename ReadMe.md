@@ -5,7 +5,7 @@
 </p>
 
 ## Free Tier
-* Oracle AMD Virtual Machine 
+* Oracle AMD Virtual Machine (Backend and CRON job)
 * Oracle Autonomous Database
 * IBM Object Storage
 * Redis
