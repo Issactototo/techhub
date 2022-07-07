@@ -1,5 +1,5 @@
 # TECHBLOGHK
-* Two-tier blog application using powerwful free tier cloud solutions
+* Two-tier blog application using powerwful ALWAYS FREE tier cloud solutions
 <p align="center">
 <img src = "./frontend/src/data/images/logo.svg" width="300px" />
 </p>
