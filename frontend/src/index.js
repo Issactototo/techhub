@@ -10,9 +10,9 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 ReactDOM.render(
   
   <Auth0Provider
-    domain={process.env.REACT_DOMAIN}
-    clientId={process.env.REACT_CLIENTID}
-    redirectUri={process.env.REACT_REDIRECTURI}
+    domain={process.env.REACT_APP_DOMAIN}
+    clientId={process.env.REACT_APP_CLIENTID}
+    redirectUri={process.env.REACT_APP_REDIRECTURI}
   >
     <App />
   </Auth0Provider>,
