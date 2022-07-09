@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Auth0Provider } from "@auth0/auth0-react";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>,
+  
+  <Auth0Provider
+    domain={process.env.REACT_DOMAIN}
+    clientId={process.env.REACT_CLIENTID}
+    redirectUri={process.env.REACT_REDIRECTURI}
+  >
+    <App />
+  </Auth0Provider>,
   document.getElementById('root')
 );
 

@@ -3,6 +3,7 @@ import {HeaderGlobalAction,ModalWrapper, Modal,TextInput,Button, Loading } from 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import {UserAccess20} from "@carbon/icons-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Cookies from 'js-cookie'
 import { userLogin } from "../../functions/local/login";
 
@@ -17,7 +18,7 @@ export function NotLoginedSubHeader({setIsLogin}){
     const [isValid, setIsValid] =useState(true);
     const [email, setEmail] =useState("");
     const [password, setPassword] =useState("");
-
+    const { loginWithRedirect } = useAuth0();
 
     const handleLogin = async () => {
         setIsLoading(true);
@@ -68,7 +69,7 @@ export function NotLoginedSubHeader({setIsLogin}){
                 </Modal>
             :null}
 
-            <UserAccess20 onClick={() => {setIsOpen(true);}}/>
+            <UserAccess20 onClick={() => {loginWithRedirect();}}/>
         </HeaderGlobalAction>
     )
 }
